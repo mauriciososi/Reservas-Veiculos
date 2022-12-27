@@ -12,3 +12,6 @@ C:\Curso C#\Frota Interna YKK\GerenciamentoFrotaInterna\obj\Debug\GerenciamentoF
 C:\Curso C#\Frota Interna YKK\GerenciamentoFrotaInterna\obj\Debug\GerenciamentoFrotaInterna.pdb
 C:\Curso C#\Frota Interna YKK\GerenciamentoFrotaInterna\obj\Debug\GerenciamentoFrotaInterna.frm_novousuario.resources
 C:\Curso C#\Frota Interna YKK\GerenciamentoFrotaInterna\obj\Debug\GerenciamentoFrotaInterna.F_GestaoDeCadastros.resources
+C:\Curso C#\Frota Interna YKK\GerenciamentoFrotaInterna\obj\Debug\GerenciamentoFrotaInterna.frm_AdicionarVeiculos.resources
+C:\Curso C#\Frota Interna YKK\GerenciamentoFrotaInterna\obj\Debug\GerenciamentoFrotaInterna.F_GestaoDeVeiculos.resources
+C:\Curso C#\Frota Interna YKK\GerenciamentoFrotaInterna\obj\Debug\GerenciamentoFrotaInterna.F_Reserva.resources

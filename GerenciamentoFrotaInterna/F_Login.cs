@@ -67,5 +67,20 @@ namespace GerenciamentoFrotaInterna
         {
             
         }
+
+        private void pictureBox1_BackColorChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Layout(object sender, LayoutEventArgs e)
+        {
+
+        }
+
+        private void tb_senha_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

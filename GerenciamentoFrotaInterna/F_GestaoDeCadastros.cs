@@ -21,7 +21,7 @@ namespace GerenciamentoFrotaInterna
         {
             dgv_usuarios.DataSource = Banco.ObterUsuarioIdNome();
             dgv_usuarios.Columns[0].Width= 80;
-            dgv_usuarios.Columns[1].Width = 180;
+            dgv_usuarios.Columns[1].Width = 120;
         }
 
         private void dgv_usuarios_SelectionChanged(object sender, EventArgs e)
@@ -117,7 +117,7 @@ namespace GerenciamentoFrotaInterna
             o_usuario.w_nome = txb_nome.Text;
             o_usuario.w_sobrenome = txb_sobreNome.Text;
             o_usuario.w_cnh = txb_cnh.Text;
-            o_usuario.w_data_cnh = dtP_Data_CNH.Value.Date;
+            o_usuario.w_data_cnh = Convert.ToDateTime(dtP_Data_CNH.Value.Date);
             o_usuario.w_nivel_acesso = Convert.ToInt32(Math.Round(nr_numeroNivel.Value));
             o_usuario.w_data_registro = DateTime.Now;
             o_usuario.w_user_registro = Globais.useracesso;
@@ -131,7 +131,7 @@ namespace GerenciamentoFrotaInterna
 
         private void btn_Excluir_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("Confirma exclusão?","Excluir?",MessageBoxButtons.YesNo);
+            DialogResult res = MessageBox.Show("                Confirma exclusão?    ","                        Excluir?     ",MessageBoxButtons.YesNo);
             if(res == DialogResult.Yes)
             {
                 Banco.ExcluirUsuario(txb_id.Text);

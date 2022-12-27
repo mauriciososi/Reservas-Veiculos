@@ -93,6 +93,26 @@ namespace GerenciamentoFrotaInterna.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap YKK_Logo___Litte_parts {
+            get {
+                object obj = ResourceManager.GetObject("YKK Logo - Litte parts", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap YKK_Logo___Litte_parts_new {
+            get {
+                object obj = ResourceManager.GetObject("YKK Logo - Litte parts new", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap YKK_Logo_1 {
             get {
                 object obj = ResourceManager.GetObject("YKK-Logo.1", resourceCulture);

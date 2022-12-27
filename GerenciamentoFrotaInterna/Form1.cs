@@ -152,6 +152,61 @@ namespace GerenciamentoFrotaInterna
         {
             Close();
         }
+
+        private void gestãoDeVeículosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Globais.logado)
+            {
+                if (Globais.nivel >= 2)
+                {
+                    //Procedimentos de Gestão
+                    F_GestaoDeVeiculos f_GestaoDeVeiculos = new F_GestaoDeVeiculos();
+                    f_GestaoDeVeiculos.ShowDialog();
+
+                }
+                else
+                {
+                    MessageBox.Show("Acesso não permitido");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("É necessário ter usuário logado.");
+            }
+        }
+
+        private void adicionarVeículosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Globais.logado)
+            {
+                if (Globais.nivel >= 2)
+                {
+                    //Procedimentos de Gestão veículos
+                    frm_AdicionarVeiculos frm_AdicionarVeiculos = new frm_AdicionarVeiculos();
+                    frm_AdicionarVeiculos.ShowDialog();
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Acesso não permitido");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("É necessário ter usuário logado.");
+            }
+        }
+
+        private void novaReservaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            F_Reserva f_reserva = new F_Reserva();
+            f_reserva.ShowDialog();
+
+
+        }
     }  
 }
 

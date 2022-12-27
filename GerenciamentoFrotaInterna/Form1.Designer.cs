@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.lb_nomeUsuario = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -39,10 +40,12 @@
             this.logonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.veículosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.oficinasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuáriosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.gestãoDeUsuáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.veículosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestãoDeVeículosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.adicionarVeículosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oficinasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reservasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.novaReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alterarReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,9 +57,11 @@
             this.oficinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.executivaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lb_LedLogado)).BeginInit();
             this.menuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -76,7 +81,7 @@
             // lb_nomeUsuario
             // 
             this.lb_nomeUsuario.AutoSize = true;
-            this.lb_nomeUsuario.Location = new System.Drawing.Point(146, 4);
+            this.lb_nomeUsuario.Location = new System.Drawing.Point(161, 4);
             this.lb_nomeUsuario.Name = "lb_nomeUsuario";
             this.lb_nomeUsuario.Size = new System.Drawing.Size(16, 13);
             this.lb_nomeUsuario.TabIndex = 3;
@@ -85,7 +90,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(94, 4);
+            this.label3.Location = new System.Drawing.Point(115, 4);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(46, 13);
             this.label3.TabIndex = 2;
@@ -94,7 +99,7 @@
             // lb_acesso
             // 
             this.lb_acesso.AutoSize = true;
-            this.lb_acesso.Location = new System.Drawing.Point(75, 4);
+            this.lb_acesso.Location = new System.Drawing.Point(101, 4);
             this.lb_acesso.Name = "lb_acesso";
             this.lb_acesso.Size = new System.Drawing.Size(13, 13);
             this.lb_acesso.TabIndex = 1;
@@ -103,11 +108,11 @@
             // Acesso
             // 
             this.Acesso.AutoSize = true;
-            this.Acesso.Location = new System.Drawing.Point(27, 4);
+            this.Acesso.Location = new System.Drawing.Point(23, 4);
             this.Acesso.Name = "Acesso";
-            this.Acesso.Size = new System.Drawing.Size(42, 13);
+            this.Acesso.Size = new System.Drawing.Size(71, 13);
             this.Acesso.TabIndex = 1;
-            this.Acesso.Text = "Acesso";
+            this.Acesso.Text = "Access Level";
             // 
             // lb_LedLogado
             // 
@@ -160,26 +165,12 @@
             // cadastrosToolStripMenuItem
             // 
             this.cadastrosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.usuáriosToolStripMenuItem1,
             this.veículosToolStripMenuItem,
-            this.oficinasToolStripMenuItem,
-            this.usuáriosToolStripMenuItem1});
+            this.oficinasToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             this.cadastrosToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.cadastrosToolStripMenuItem.Text = "Cadastros";
-            // 
-            // veículosToolStripMenuItem
-            // 
-            this.veículosToolStripMenuItem.Name = "veículosToolStripMenuItem";
-            this.veículosToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.veículosToolStripMenuItem.Text = "Veículos";
-            this.veículosToolStripMenuItem.Click += new System.EventHandler(this.veículosToolStripMenuItem_Click);
-            // 
-            // oficinasToolStripMenuItem
-            // 
-            this.oficinasToolStripMenuItem.Name = "oficinasToolStripMenuItem";
-            this.oficinasToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.oficinasToolStripMenuItem.Text = "Oficinas";
-            this.oficinasToolStripMenuItem.Click += new System.EventHandler(this.oficinasToolStripMenuItem_Click);
             // 
             // usuáriosToolStripMenuItem1
             // 
@@ -193,9 +184,40 @@
             // gestãoDeUsuáriosToolStripMenuItem
             // 
             this.gestãoDeUsuáriosToolStripMenuItem.Name = "gestãoDeUsuáriosToolStripMenuItem";
-            this.gestãoDeUsuáriosToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.gestãoDeUsuáriosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.gestãoDeUsuáriosToolStripMenuItem.Text = "Gestão de Usuários";
             this.gestãoDeUsuáriosToolStripMenuItem.Click += new System.EventHandler(this.gestãoDeUsuáriosToolStripMenuItem_Click);
+            // 
+            // veículosToolStripMenuItem
+            // 
+            this.veículosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gestãoDeVeículosToolStripMenuItem,
+            this.adicionarVeículosToolStripMenuItem});
+            this.veículosToolStripMenuItem.Name = "veículosToolStripMenuItem";
+            this.veículosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.veículosToolStripMenuItem.Text = "Veículos";
+            this.veículosToolStripMenuItem.Click += new System.EventHandler(this.veículosToolStripMenuItem_Click);
+            // 
+            // gestãoDeVeículosToolStripMenuItem
+            // 
+            this.gestãoDeVeículosToolStripMenuItem.Name = "gestãoDeVeículosToolStripMenuItem";
+            this.gestãoDeVeículosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gestãoDeVeículosToolStripMenuItem.Text = "Gestão de Veículos";
+            this.gestãoDeVeículosToolStripMenuItem.Click += new System.EventHandler(this.gestãoDeVeículosToolStripMenuItem_Click);
+            // 
+            // adicionarVeículosToolStripMenuItem
+            // 
+            this.adicionarVeículosToolStripMenuItem.Name = "adicionarVeículosToolStripMenuItem";
+            this.adicionarVeículosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.adicionarVeículosToolStripMenuItem.Text = "Adicionar Veículos";
+            this.adicionarVeículosToolStripMenuItem.Click += new System.EventHandler(this.adicionarVeículosToolStripMenuItem_Click);
+            // 
+            // oficinasToolStripMenuItem
+            // 
+            this.oficinasToolStripMenuItem.Name = "oficinasToolStripMenuItem";
+            this.oficinasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.oficinasToolStripMenuItem.Text = "Oficinas";
+            this.oficinasToolStripMenuItem.Click += new System.EventHandler(this.oficinasToolStripMenuItem_Click);
             // 
             // reservasToolStripMenuItem1
             // 
@@ -210,19 +232,20 @@
             // novaReservaToolStripMenuItem
             // 
             this.novaReservaToolStripMenuItem.Name = "novaReservaToolStripMenuItem";
-            this.novaReservaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.novaReservaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.novaReservaToolStripMenuItem.Text = "Nova Reserva";
+            this.novaReservaToolStripMenuItem.Click += new System.EventHandler(this.novaReservaToolStripMenuItem_Click);
             // 
             // alterarReservaToolStripMenuItem
             // 
             this.alterarReservaToolStripMenuItem.Name = "alterarReservaToolStripMenuItem";
-            this.alterarReservaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.alterarReservaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.alterarReservaToolStripMenuItem.Text = "Alterar Reserva";
             // 
             // devoluçãoToolStripMenuItem
             // 
             this.devoluçãoToolStripMenuItem.Name = "devoluçãoToolStripMenuItem";
-            this.devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.devoluçãoToolStripMenuItem.Text = "Devolução";
             // 
             // consultasToolStripMenuItem
@@ -273,14 +296,30 @@
             this.sairToolStripMenuItem.Text = "Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBox1.BackgroundImage = global::GerenciamentoFrotaInterna.Properties.Resources.YKK_Logo_1;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox1.Image = global::GerenciamentoFrotaInterna.Properties.Resources.YKK_Logo_1;
+            this.pictureBox1.Location = new System.Drawing.Point(192, 76);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(374, 262);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::GerenciamentoFrotaInterna.Properties.Resources.YKK_Logo_1;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
+            this.ForeColor = System.Drawing.SystemColors.Control;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -291,6 +330,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.lb_LedLogado)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -324,6 +364,9 @@
         private System.Windows.Forms.ToolStripMenuItem oficinasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuáriosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem gestãoDeUsuáriosToolStripMenuItem;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ToolStripMenuItem gestãoDeVeículosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem adicionarVeículosToolStripMenuItem;
     }
 }
 

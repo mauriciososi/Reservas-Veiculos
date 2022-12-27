@@ -121,13 +121,19 @@
   <data name="led_vermelho" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\led_vermelho.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="YKK Logo - Litte parts" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\YKK Logo - Litte parts.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="YKK-Logo.1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\YKK-Logo.1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="led_vermelho1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\led_vermelho1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="led_verde" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Imagens\led_verde.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="YKK-Logo.1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\YKK-Logo.1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="YKK Logo - Litte parts new" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\YKK Logo - Litte parts new.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

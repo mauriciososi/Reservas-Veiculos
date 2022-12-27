@@ -48,6 +48,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdicionarVeiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdicionarVeiculos.Designer.cs">
+      <DependentUpon>AdicionarVeiculos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Banco.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -67,21 +73,38 @@
     <Compile Include="F_GestaoDeCadastros.Designer.cs">
       <DependentUpon>F_GestaoDeCadastros.cs</DependentUpon>
     </Compile>
+    <Compile Include="F_GestaoDeVeiculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_GestaoDeVeiculos.Designer.cs">
+      <DependentUpon>F_GestaoDeVeiculos.cs</DependentUpon>
+    </Compile>
     <Compile Include="F_Login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="F_Login.Designer.cs">
       <DependentUpon>F_Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="F_Reserva.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="F_Reserva.Designer.cs">
+      <DependentUpon>F_Reserva.cs</DependentUpon>
+    </Compile>
     <Compile Include="Globais.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reservas.cs" />
     <Compile Include="Settings1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings1.settings</DependentUpon>
     </Compile>
     <Compile Include="Usuario.cs" />
+    <Compile Include="Veiculos.cs" />
+    <EmbeddedResource Include="AdicionarVeiculos.resx">
+      <DependentUpon>AdicionarVeiculos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -91,8 +114,14 @@
     <EmbeddedResource Include="F_GestaoDeCadastros.resx">
       <DependentUpon>F_GestaoDeCadastros.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="F_GestaoDeVeiculos.resx">
+      <DependentUpon>F_GestaoDeVeiculos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="F_Login.resx">
       <DependentUpon>F_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="F_Reserva.resx">
+      <DependentUpon>F_Reserva.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -129,6 +158,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Imagens\YKK-Logo.1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagens\YKK Logo - Litte parts.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagens\YKK Logo - Litte parts new.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

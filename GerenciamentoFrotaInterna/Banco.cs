@@ -13,7 +13,7 @@ namespace GerenciamentoFrotaInterna
     {
         private static SqlConnection conexao;
 
-        private static SqlConnection ConexaoBanco()
+        public static SqlConnection ConexaoBanco()
         {
             conexao = new SqlConnection(@"Data Source=N20393\SQLEXPRESS; Initial Catalog=db_frotaYKK;Integrated security=True");
             conexao.Open();
@@ -26,18 +26,16 @@ namespace GerenciamentoFrotaInterna
             DataTable dt = new DataTable();
             try
             {
-                using (var cmd = ConexaoBanco().CreateCommand())
-                {
-                    cmd.CommandText = "SELECT * FROM tbl_usuarios";
-                    da = new SqlDataAdapter(cmd.CommandText, ConexaoBanco());
-                    da.Fill(dt);
-                    ConexaoBanco().Close();
-                    return dt;
-                }
+               var vcon = ConexaoBanco();
+               var cmd = vcon.CreateCommand();
+               cmd.CommandText = "SELECT * FROM tbl_usuarios";
+               da = new SqlDataAdapter(cmd.CommandText, vcon);
+               da.Fill(dt);
+               vcon.Close();
+               return dt;
             }
             catch (Exception ex)
             {
-                ConexaoBanco().Close();
                 throw ex;
             }
 
@@ -48,14 +46,13 @@ namespace GerenciamentoFrotaInterna
             DataTable dt = new DataTable();
             try
             {
-                using (var cmd = ConexaoBanco().CreateCommand())
-                {
-                    cmd.CommandText = sql;
-                    da = new SqlDataAdapter(cmd.CommandText, ConexaoBanco());
-                    da.Fill(dt);
-                    ConexaoBanco().Close();
-                    return dt;
-                }
+                var vcon = ConexaoBanco();
+                var cmd = vcon.CreateCommand();
+                cmd.CommandText = sql;
+                da = new SqlDataAdapter(cmd.CommandText, vcon);
+                da.Fill(dt);
+                vcon.Close(); 
+                return dt;
             }
             catch (Exception ex)
             {
@@ -63,26 +60,27 @@ namespace GerenciamentoFrotaInterna
                 throw ex;
             }
         }
-        // INÍCIO-Funções do FORM F_GestaoDeUsuarios
+        //-----------------------------------------------------------------------------//
+        // INÍCIO-Funções do FORM F_GestaoDeUsuarios                                   //
+        //-----------------------------------------------------------------------------//
         public static DataTable ObterUsuarioIdNome()
         {
             SqlDataAdapter da = null;
             DataTable dt = new DataTable();
             try
             {
-                using (var cmd = ConexaoBanco().CreateCommand())
-                {
-                    cmd.CommandText = "SELECT usr_id_usuario as ID, usr_nome as NOME, usr_sobre_nome as SOBRE_NOME  FROM tbl_usuarios";
-                    da = new SqlDataAdapter(cmd.CommandText, ConexaoBanco());
-                    da.Fill(dt);
-                    ConexaoBanco().Close();
-                    return dt;
-                }
+                var vcon = ConexaoBanco();
+                var cmd = vcon.CreateCommand();
+                cmd.CommandText = "SELECT usr_id_usuario as ID, usr_nome as NOME, usr_sobre_nome as SOBRE_NOME  FROM tbl_usuarios";
+                da = new SqlDataAdapter(cmd.CommandText, vcon );
+                da.Fill(dt);
+                vcon.Close();
+                return dt;
+                
             }
             catch (Exception ex)
             {
-                ConexaoBanco().Close();
-                throw ex;
+              throw ex;
             }
 
         }
@@ -92,22 +90,42 @@ namespace GerenciamentoFrotaInterna
             DataTable dt = new DataTable();
             try
             {
-                using (var cmd = ConexaoBanco().CreateCommand())
-                {
-                    cmd.CommandText = "SELECT *  FROM tbl_usuarios WHERE usr_id_usuario=" + id;
-                    da = new SqlDataAdapter(cmd.CommandText, ConexaoBanco());
-                    da.Fill(dt);
-                    ConexaoBanco().Close();
-                    return dt;
-                }
+                var vcon = ConexaoBanco();
+                var cmd = vcon.CreateCommand();
+                cmd.CommandText = "SELECT *  FROM tbl_usuarios WHERE usr_id_usuario=" + id;
+                da = new SqlDataAdapter(cmd.CommandText, vcon);
+                da.Fill(dt);
+                vcon.Close();
+                return dt;
+                
             }
             catch (Exception ex)
             {
-                ConexaoBanco().Close();
                 throw ex;
             }
 
         }
+        //public static DataTable ObterDadosUsuarioUserAcesso(string useracesso)
+        //{
+        //    SqlDataAdapter da = null;
+        //    DataTable dt = new DataTable();
+        //    try
+        //    {
+        //        var vcon = ConexaoBanco();
+        //        var cmd = vcon.CreateCommand();
+        //        cmd.CommandText = "SELECT *  FROM tbl_usuarios WHERE usr_usuario= '"+useracesso+"' ";
+        //        da = new SqlDataAdapter(cmd.CommandText, vcon);
+        //        da.Fill(dt);
+        //        vcon.Close();
+        //        return dt;
+
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+
+        //}
 
         public static void AtualizarUsuario(Usuario u)
         {
@@ -115,26 +133,25 @@ namespace GerenciamentoFrotaInterna
             DataTable dt = new DataTable();
             try
             {
-                using (var cmd = ConexaoBanco().CreateCommand())
-                {
-                    cmd.CommandText = "UPDATE tbl_usuarios SET usr_usuario='" + u.w_usuario + "', usr_senha='" + u.w_senha + "'," + "usr_cod_empresa=" + u.w_empresa + ", usr_matricula =" + u.w_matricula + "," + "usr_departamento ='" + u.w_departamento + "',usr_nome ='" + u.w_nome + "'," + "usr_sobre_nome ='" + u.w_sobrenome + "',usr_cnh =" + u.w_cnh +"," +
+                var vcon = ConexaoBanco();
+                var cmd = vcon.CreateCommand();
+                cmd.CommandText = "UPDATE tbl_usuarios SET usr_usuario='" + u.w_usuario + "', usr_senha='" + u.w_senha + "'," + "usr_cod_empresa=" + u.w_empresa + ", usr_matricula =" + u.w_matricula + "," + "usr_departamento ='" + u.w_departamento + "',usr_nome ='" + u.w_nome + "'," + "usr_sobre_nome ='" + u.w_sobrenome + "',usr_cnh =" + u.w_cnh +"," +
                                                                "usr_Nivel_usuario ="+u.w_nivel_acesso+"," +
-                                                      //       "usr_data_atualizacao="+DateTime.Now+"," +
+                                                            //   "usr_data_atualizacao="+ u.w_data_cnh + "," +
                                                                "usr_usuario_atualizacao = '" + Globais.useracesso + "' WHERE usr_matricula =" +u.w_matricula;
 
-                    da = new SqlDataAdapter(cmd.CommandText, ConexaoBanco());
-                    cmd.ExecuteNonQuery();
-                    ConexaoBanco().Close();
+                da = new SqlDataAdapter(cmd.CommandText, vcon);
+                cmd.ExecuteNonQuery();
+                vcon.Close();
                     
-                }
+                
             }
             catch (Exception ex)
             {
-                ConexaoBanco().Close();
-                throw ex;
+              throw ex;
             }
 
-        }
+         }
 
         public static void ExcluirUsuario(string id)
         {
@@ -142,29 +159,119 @@ namespace GerenciamentoFrotaInterna
             DataTable dt = new DataTable();
             try
             {
-                using (var cmd = ConexaoBanco().CreateCommand())
-                {
-                    cmd.CommandText = "DELETE FROM tbl_usuarios WHERE usr_id_usuario=" + id;
-
-                    da = new SqlDataAdapter(cmd.CommandText, ConexaoBanco());
-                    cmd.ExecuteNonQuery();
-                    ConexaoBanco().Close();
-
-                }
+                var vcon = ConexaoBanco();
+                var cmd = vcon.CreateCommand();
+                cmd.CommandText = "DELETE FROM tbl_usuarios WHERE usr_id_usuario=" + id;
+                da = new SqlDataAdapter(cmd.CommandText, vcon);
+                cmd.ExecuteNonQuery();
+                vcon.Close();
             }
             catch (Exception ex)
             {
-                ConexaoBanco().Close();
+               throw ex;
+            }
+
+        }
+        //-----------------------------------------------------------------------------//
+        // FIM-Funções do FORM F_GestaoDeUsuarios                                      //
+        //-----------------------------------------------------------------------------//
+
+        //-----------------------------------------------------------------------------//
+        // INÍCIO-Funções do FORM F_GestaoDeVeiculos                                   //
+        //-----------------------------------------------------------------------------//
+        public static DataTable ObterVeiculoIdPlaca()
+        {
+            SqlDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                var vcon = ConexaoBanco();
+                var cmd = vcon.CreateCommand();
+                cmd.CommandText = "SELECT car_id as ID, car_placa as PLACA, car_marca as MARCA, car_modelo as MODELO  FROM tbl_veiculos";
+                da = new SqlDataAdapter(cmd.CommandText,vcon);
+                da.Fill(dt);
+                vcon.Close();
+                return dt;
+                
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+        public static DataTable ObterDadosVeiculo(string id)
+        {
+            SqlDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                var vcon = ConexaoBanco();
+                var cmd = vcon.CreateCommand();
+                cmd.CommandText = "SELECT *  FROM tbl_veiculos WHERE car_id=" + id;
+                da = new SqlDataAdapter(cmd.CommandText, vcon);
+                da.Fill(dt);
+                vcon.Close();
+                return dt;
+            }
+            catch (Exception ex)
+            {
                 throw ex;
             }
 
         }
 
+        public static void AtualizarVeiculo(Veiculos v)
+        {
+            SqlDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                var vcon = ConexaoBanco();
+                var cmd = vcon.CreateCommand();
+                cmd.CommandText =  "UPDATE tbl_veiculos SET car_placa='" + v.v_placa + "',car_ano=" + v.v_ano + ",car_marca='" + v.v_marca + "',car_modelo='" + v.v_modelo + "',car_portas=" + v.v_portas + ",car_cor='" + v.v_cor + "',car_foto='" + v.v_foto + "',car_chassi='" + v.v_chassi + "',car_combustivel='" + v.v_combustivel + "',car_tipo='" + v.v_tipo + "',car_hodometro=" + v.v_hodometro + ",car_situacao='" + v.v_situacao + "',car_usuario_atualizacao='"+ Globais.useracesso+ "' WHERE car_placa= '"+v.v_placa+"'";
+                da = new SqlDataAdapter(cmd.CommandText, vcon);
+                cmd.ExecuteNonQuery();
+                vcon.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+        public static void ExcluirVeiculo(string placa)
+        {
+            SqlDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                var vcon = ConexaoBanco();
+                var cmd = vcon.CreateCommand();
+                cmd.CommandText = "DELETE FROM tbl_veiculos WHERE car_placa= '"+placa+"'";
+                da = new SqlDataAdapter(cmd.CommandText, vcon);
+                cmd.ExecuteNonQuery();
+                ConexaoBanco().Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+        //-----------------------------------------------------------------------------//
+        // FIM-Funções do FORM F_GestaoDeUsuarios                                      //
+        //-----------------------------------------------------------------------------//
 
 
-        // FIM-Funções do FORM F_GestaoDeUsuarios
 
-        // INÍCIO-Funções do FORM frm_novousuario (Form2.cs[Design] "Novo usuário"
+
+
+        //------------------------FUNÇÕES/METODOS USUARIOS-----------------------------//
+        // INÍCIO-Funções do FORM frm_novousuario (Form2.cs[Design] "Novo usuário"     //
+        //-----------------------------------------------------------------------------//
+        // INICIO-ROTINAS GRAVAR NOVO USUARIO
         public static void NovoUsuario(Usuario u) {
 
             if (existeUsername(u))
@@ -228,12 +335,101 @@ namespace GerenciamentoFrotaInterna
            //     MessageBox.Show("Erro ao gravar novo usuário, verifique!");
                 //throw;
            // }
-            
+        }
+        //------------------------FUNÇÕES/METODOS USUARIOS-----------------------------//
+        // FIM-Funções do FORM frm_novousuario (Form2.cs[Design] "Novo usuário"        //
+        //-----------------------------------------------------------------------------//
+
+
+        //------------------------FUNÇÕES/METODOS VEICULOS-----------------------------//
+        // INICIO-Funções do FORM  (AdicionarVeiculos.cs[Design] "Novo veiculo"        //
+        //-----------------------------------------------------------------------------//
+        // INICIO-ROTINAS GRAVAR VEÍCULOS 
+        public static void NovoVeiculo(Veiculos v)
+        {
+
+            if (existePlaca(v))
+            {
+                MessageBox.Show("Veículo informado já existe, verifique");
+                return;
+            }
+            //try
+            // {
+            var cmd = ConexaoBanco().CreateCommand();
+            cmd.CommandText = "INSERT INTO tbl_veiculos (" +
+                "car_empresa," +
+                "car_placa," +
+                "car_ano," +
+                "car_marca," +
+                "car_modelo," +
+                "car_portas," +
+                "car_cor," +
+                "car_foto," +
+                "car_chassi," +
+                "car_combustivel," +
+                "car_tipo," +
+                "car_hodometro," +
+                "car_situacao," +
+                "car_data_cadastro," +
+                "car_usuario_cadastro," +
+                "car_data_atualizacao," +
+                "car_usuario_atualizacao) " +
+                "VALUES (@car_empresa," +
+                "@car_placa," +
+                "@car_ano," +
+                "@car_marca," +
+                "@car_modelo," +
+                "@car_portas," +
+                "@car_cor," +
+                "@car_foto," +
+                "@car_chassi," +
+                "@car_combustivel," +
+                "@car_tipo," +
+                "@car_hodometro," +
+                "@car_situacao," +
+                "@car_data_cadastro," +
+                "@car_usuario_cadastro," +
+                "@car_data_atualizacao," +
+                "@car_usuario_atualizacao)";
+            cmd.Parameters.AddWithValue("@car_empresa", v.v_empresa);
+            cmd.Parameters.AddWithValue("@car_placa", v.v_placa);
+            cmd.Parameters.AddWithValue("@car_ano", v.v_ano);
+            cmd.Parameters.AddWithValue("@car_marca", v.v_marca);
+            cmd.Parameters.AddWithValue("@car_modelo", v.v_modelo);
+            cmd.Parameters.AddWithValue("@car_portas", v.v_portas);
+            cmd.Parameters.AddWithValue("@car_cor", v.v_cor);
+            cmd.Parameters.AddWithValue("@car_foto", v.v_foto);
+            cmd.Parameters.AddWithValue("@car_chassi", v.v_chassi);
+            cmd.Parameters.AddWithValue("@car_combustivel", v.v_combustivel);
+            cmd.Parameters.AddWithValue("@car_tipo", v.v_tipo);
+            cmd.Parameters.AddWithValue("@car_hodometro", v.v_hodometro);
+            cmd.Parameters.AddWithValue("@car_situacao", v.v_situacao);
+            cmd.Parameters.AddWithValue("@car_data_cadastro", DateTime.Now);
+            cmd.Parameters.AddWithValue("@car_usuario_cadastro", Globais.useracesso);
+            //Nesse ponto não precisa gravar os campos de atualização... deixar por enquanto pra não dar erro
+            cmd.Parameters.AddWithValue("@car_data_atualizacao", DateTime.Now);
+            cmd.Parameters.AddWithValue("@car_usuario_atualizacao", Globais.useracesso);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Novo veículo inserido com sucesso.");
+            ConexaoBanco().Close();
+            // }
+            // catch (Exception ex)
+            // {
+            //     MessageBox.Show("Erro ao gravar novo usuário, verifique!");
+            //throw;
+            // }
+
 
         }
-        // FIM-Funções do Form "Novo usuário"
+        // FIM-ROTINAS GRAVAR VEÍCULOS
+        //------------------------FUNÇÕES/METODOS VEICULOS-----------------------------//
+        // FIM-Funções do FORM  (AdicionarVeiculos.cs[Design] "Novo veiculo"           //
+        //-----------------------------------------------------------------------------//
 
-        // INICIO-ROTINAS GERAIS
+        //----------------------------INICIO-ROTINAS GERAIS----------------------------//
+        //                    (USUARIO/VEICULOS/RESERVAS/OFICINAS)                     //
+        //-----------------------------------------------------------------------------//
+        //***SETOR USUARIO***
         public static bool existeUsername(Usuario u)
         {
             bool res;
@@ -257,9 +453,39 @@ namespace GerenciamentoFrotaInterna
             return res;
 
         }
-        // FIM-ROTINAS GERAIS
+        //-----------------------------------------------------------------------------//
+        //***SETOR VEICULOS***                                                         //
+        //-----------------------------------------------------------------------------//
+        public static bool existePlaca(Veiculos v)
+        {
+            bool res;
 
+            SqlDataAdapter da = null;
+            DataTable dt = new DataTable();
+
+            var cmd = ConexaoBanco().CreateCommand();
+            cmd.CommandText = "SELECT car_placa FROM tbl_veiculos" +
+                "                       WHERE car_placa ='" + v.v_placa + "'";
+            da = new SqlDataAdapter(cmd.CommandText, ConexaoBanco());
+            da.Fill(dt);
+            if (dt.Rows.Count > 0)
+            {
+                res = true;
+            }
+            else
+            {
+                res = false;
+            }
+            return res;
+        }
         
+
+
+        //----------------------------FIM-ROTINAS GERAIS-------------------------------//
+        //                    (USUARIO/VEICULOS/RESERVAS/OFICINAS)                     //
+        //-----------------------------------------------------------------------------//
+
+
 
     }
 }

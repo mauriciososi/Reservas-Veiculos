@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +26,29 @@ namespace GerenciamentoFrotaInterna
         public DateTime w_data_atualizacao;  //Data em que atualizou registro na tabela
         public string w_user_atualizacao;    //Usuário que atualizou registro na tabela
 
-       
+
+        public static DataTable ObterDadosUsuarioUserAcesso(string useracesso)
+        {
+            SqlDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                var vcon = Banco.ConexaoBanco();
+                var cmd = vcon.CreateCommand();
+                cmd.CommandText = "SELECT *  FROM tbl_usuarios WHERE usr_usuario= '" + useracesso + "' ";
+                da = new SqlDataAdapter(cmd.CommandText, vcon);
+                da.Fill(dt);
+                vcon.Close();
+                return dt;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
 
     }
 }
