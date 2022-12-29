@@ -15,3 +15,4 @@ C:\Curso C#\Frota Interna YKK\GerenciamentoFrotaInterna\obj\Debug\GerenciamentoF
 C:\Curso C#\Frota Interna YKK\GerenciamentoFrotaInterna\obj\Debug\GerenciamentoFrotaInterna.frm_AdicionarVeiculos.resources
 C:\Curso C#\Frota Interna YKK\GerenciamentoFrotaInterna\obj\Debug\GerenciamentoFrotaInterna.F_GestaoDeVeiculos.resources
 C:\Curso C#\Frota Interna YKK\GerenciamentoFrotaInterna\obj\Debug\GerenciamentoFrotaInterna.F_Reserva.resources
+C:\Curso C#\Frota Interna YKK\GerenciamentoFrotaInterna\obj\Debug\GerenciamentoFrotaInterna.testeDate.resources

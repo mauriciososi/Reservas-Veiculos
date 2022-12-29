@@ -145,29 +145,26 @@ namespace GerenciamentoFrotaInterna
 
         private void cb_empresa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int valor = Convert.ToInt32(cb_empresa.Text);
-            if (valor == 1)
-            {
-                txb_descEmpresa.Text = "MATRIZ/SP CORPORATE";
-            }
-            else if (valor == 04)
-            {
-                txb_descEmpresa.Text = "YOSHIDA BRASIL";
-            }
-            else if (valor == 10)
-            {
-                txb_descEmpresa.Text = "FÁBRICA/SOROCABA";
-            }
-            else if (valor == 13)
-            {
-                txb_descEmpresa.Text = "FÁBRICA/YOSHIDA NORDESTE";
-            }
+
+            Usuario desc = new Usuario();
+            txb_descEmpresa.Text = desc.DescricaoEmpresa(this.cb_empresa, this.txb_descEmpresa);
+
         }
 
         private void btn_Sair_Click(object sender, EventArgs e)
         {
             Close();
         }
+
+        private void frm_AdicionarVeiculos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
+
     }
 }
 

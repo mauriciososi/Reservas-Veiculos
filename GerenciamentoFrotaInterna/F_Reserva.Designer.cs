@@ -70,6 +70,8 @@
             this.label16 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.pb_FotoCarro = new System.Windows.Forms.PictureBox();
+            this.mtb_horario_inicio = new System.Windows.Forms.MaskedTextBox();
+            this.mtb_horario_fim = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_veiculos_reserva)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_FotoCarro)).BeginInit();
@@ -80,9 +82,9 @@
             this.panel1.Controls.Add(this.btn_Fechar);
             this.panel1.Controls.Add(this.btn_GravarNovo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 418);
+            this.panel1.Location = new System.Drawing.Point(0, 612);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 32);
+            this.panel1.Size = new System.Drawing.Size(1033, 32);
             this.panel1.TabIndex = 94;
             // 
             // btn_Fechar
@@ -105,6 +107,7 @@
             this.btn_GravarNovo.TabIndex = 0;
             this.btn_GravarNovo.Text = "Gravar Reserva";
             this.btn_GravarNovo.UseVisualStyleBackColor = true;
+            this.btn_GravarNovo.Click += new System.EventHandler(this.btn_GravarNovo_Click);
             // 
             // dgv_veiculos_reserva
             // 
@@ -126,7 +129,7 @@
             this.dgv_veiculos_reserva.ReadOnly = true;
             this.dgv_veiculos_reserva.RowHeadersVisible = false;
             this.dgv_veiculos_reserva.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_veiculos_reserva.Size = new System.Drawing.Size(451, 129);
+            this.dgv_veiculos_reserva.Size = new System.Drawing.Size(555, 215);
             this.dgv_veiculos_reserva.TabIndex = 93;
             this.dgv_veiculos_reserva.SelectionChanged += new System.EventHandler(this.dgv_veiculos_reserva_SelectionChanged);
             // 
@@ -134,7 +137,7 @@
             // 
             this.txb_descEmpresa.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.txb_descEmpresa.Enabled = false;
-            this.txb_descEmpresa.Location = new System.Drawing.Point(58, 201);
+            this.txb_descEmpresa.Location = new System.Drawing.Point(64, 305);
             this.txb_descEmpresa.Name = "txb_descEmpresa";
             this.txb_descEmpresa.ReadOnly = true;
             this.txb_descEmpresa.Size = new System.Drawing.Size(172, 20);
@@ -158,7 +161,7 @@
             "RENAULT",
             "TOYOTA",
             "VW"});
-            this.cb_marca.Location = new System.Drawing.Point(428, 186);
+            this.cb_marca.Location = new System.Drawing.Point(541, 304);
             this.cb_marca.Name = "cb_marca";
             this.cb_marca.Size = new System.Drawing.Size(145, 21);
             this.cb_marca.TabIndex = 78;
@@ -178,7 +181,7 @@
             "",
             "",
             ""});
-            this.cb_combustivel.Location = new System.Drawing.Point(584, 237);
+            this.cb_combustivel.Location = new System.Drawing.Point(697, 355);
             this.cb_combustivel.Name = "cb_combustivel";
             this.cb_combustivel.Size = new System.Drawing.Size(127, 21);
             this.cb_combustivel.TabIndex = 73;
@@ -193,7 +196,7 @@
             "10",
             "04",
             "13"});
-            this.cb_empresa.Location = new System.Drawing.Point(10, 201);
+            this.cb_empresa.Location = new System.Drawing.Point(16, 305);
             this.cb_empresa.Name = "cb_empresa";
             this.cb_empresa.Size = new System.Drawing.Size(35, 21);
             this.cb_empresa.TabIndex = 67;
@@ -211,7 +214,7 @@
             // 
             this.txb_cor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txb_cor.Enabled = false;
-            this.txb_cor.Location = new System.Drawing.Point(678, 187);
+            this.txb_cor.Location = new System.Drawing.Point(791, 305);
             this.txb_cor.Name = "txb_cor";
             this.txb_cor.Size = new System.Drawing.Size(109, 20);
             this.txb_cor.TabIndex = 71;
@@ -220,7 +223,7 @@
             // 
             this.txb_ano.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txb_ano.Enabled = false;
-            this.txb_ano.Location = new System.Drawing.Point(608, 185);
+            this.txb_ano.Location = new System.Drawing.Point(721, 303);
             this.txb_ano.Name = "txb_ano";
             this.txb_ano.Size = new System.Drawing.Size(44, 20);
             this.txb_ano.TabIndex = 70;
@@ -229,7 +232,7 @@
             // 
             this.txb_placa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txb_placa.Enabled = false;
-            this.txb_placa.Location = new System.Drawing.Point(428, 238);
+            this.txb_placa.Location = new System.Drawing.Point(541, 356);
             this.txb_placa.Name = "txb_placa";
             this.txb_placa.Size = new System.Drawing.Size(70, 20);
             this.txb_placa.TabIndex = 68;
@@ -238,7 +241,7 @@
             // 
             this.txb_modelo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txb_modelo.Enabled = false;
-            this.txb_modelo.Location = new System.Drawing.Point(428, 213);
+            this.txb_modelo.Location = new System.Drawing.Point(541, 331);
             this.txb_modelo.Name = "txb_modelo";
             this.txb_modelo.Size = new System.Drawing.Size(223, 20);
             this.txb_modelo.TabIndex = 69;
@@ -246,7 +249,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(512, 245);
+            this.label7.Location = new System.Drawing.Point(625, 363);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(66, 13);
             this.label7.TabIndex = 85;
@@ -255,7 +258,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(656, 192);
+            this.label4.Location = new System.Drawing.Point(769, 310);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(23, 13);
             this.label4.TabIndex = 83;
@@ -264,7 +267,7 @@
             // lb_Placa
             // 
             this.lb_Placa.AutoSize = true;
-            this.lb_Placa.Location = new System.Drawing.Point(382, 245);
+            this.lb_Placa.Location = new System.Drawing.Point(495, 363);
             this.lb_Placa.Name = "lb_Placa";
             this.lb_Placa.Size = new System.Drawing.Size(34, 13);
             this.lb_Placa.TabIndex = 80;
@@ -273,7 +276,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(581, 190);
+            this.label6.Location = new System.Drawing.Point(694, 308);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(26, 13);
             this.label6.TabIndex = 87;
@@ -282,7 +285,7 @@
             // lb_marca
             // 
             this.lb_marca.AutoSize = true;
-            this.lb_marca.Location = new System.Drawing.Point(381, 193);
+            this.lb_marca.Location = new System.Drawing.Point(494, 311);
             this.lb_marca.Name = "lb_marca";
             this.lb_marca.Size = new System.Drawing.Size(37, 13);
             this.lb_marca.TabIndex = 86;
@@ -291,7 +294,7 @@
             // lb_Modelo
             // 
             this.lb_Modelo.AutoSize = true;
-            this.lb_Modelo.Location = new System.Drawing.Point(381, 220);
+            this.lb_Modelo.Location = new System.Drawing.Point(494, 338);
             this.lb_Modelo.Name = "lb_Modelo";
             this.lb_Modelo.Size = new System.Drawing.Size(42, 13);
             this.lb_Modelo.TabIndex = 88;
@@ -300,7 +303,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(7, 233);
+            this.label11.Location = new System.Drawing.Point(13, 337);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(35, 13);
             this.label11.TabIndex = 96;
@@ -309,7 +312,7 @@
             // txb_nome_completo
             // 
             this.txb_nome_completo.Enabled = false;
-            this.txb_nome_completo.Location = new System.Drawing.Point(57, 226);
+            this.txb_nome_completo.Location = new System.Drawing.Point(63, 330);
             this.txb_nome_completo.Name = "txb_nome_completo";
             this.txb_nome_completo.Size = new System.Drawing.Size(260, 20);
             this.txb_nome_completo.TabIndex = 97;
@@ -317,7 +320,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(11, 259);
+            this.label12.Location = new System.Drawing.Point(17, 363);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(52, 13);
             this.label12.TabIndex = 98;
@@ -326,7 +329,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(8, 259);
+            this.label13.Location = new System.Drawing.Point(14, 363);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(52, 13);
             this.label13.TabIndex = 98;
@@ -335,7 +338,7 @@
             // txb_matricula
             // 
             this.txb_matricula.Enabled = false;
-            this.txb_matricula.Location = new System.Drawing.Point(68, 252);
+            this.txb_matricula.Location = new System.Drawing.Point(74, 356);
             this.txb_matricula.Name = "txb_matricula";
             this.txb_matricula.Size = new System.Drawing.Size(100, 20);
             this.txb_matricula.TabIndex = 97;
@@ -343,37 +346,37 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(379, 169);
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(492, 277);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(108, 13);
+            this.label14.Size = new System.Drawing.Size(247, 20);
             this.label14.TabIndex = 99;
-            this.label14.Text = "Dados do veículo";
+            this.label14.Text = "Dados do veículo selecionado";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(5, 173);
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(11, 277);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(106, 13);
+            this.label15.Size = new System.Drawing.Size(150, 20);
             this.label15.TabIndex = 99;
             this.label15.Text = "Dados do usuário";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(7, 292);
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(15, 416);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(107, 13);
+            this.label5.Size = new System.Drawing.Size(150, 20);
             this.label5.TabIndex = 99;
             this.label5.Text = "Dados da reserva";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 320);
+            this.label1.Location = new System.Drawing.Point(15, 444);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 100;
@@ -382,7 +385,8 @@
             // dtp_inicio_reserva
             // 
             this.dtp_inicio_reserva.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtp_inicio_reserva.Location = new System.Drawing.Point(74, 314);
+            this.dtp_inicio_reserva.CustomFormat = "";
+            this.dtp_inicio_reserva.Location = new System.Drawing.Point(82, 438);
             this.dtp_inicio_reserva.Name = "dtp_inicio_reserva";
             this.dtp_inicio_reserva.Size = new System.Drawing.Size(217, 20);
             this.dtp_inicio_reserva.TabIndex = 101;
@@ -391,15 +395,16 @@
             // 
             // dtp_fim_reserva
             // 
-            this.dtp_fim_reserva.Location = new System.Drawing.Point(382, 313);
+            this.dtp_fim_reserva.Location = new System.Drawing.Point(607, 444);
             this.dtp_fim_reserva.Name = "dtp_fim_reserva";
             this.dtp_fim_reserva.Size = new System.Drawing.Size(217, 20);
             this.dtp_fim_reserva.TabIndex = 103;
+            this.dtp_fim_reserva.Value = new System.DateTime(2022, 12, 27, 15, 52, 1, 0);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(314, 319);
+            this.label2.Location = new System.Drawing.Point(555, 446);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 102;
@@ -409,7 +414,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(379, 347);
+            this.label3.Location = new System.Drawing.Point(604, 478);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 104;
@@ -417,7 +422,7 @@
             // 
             // txb_destino_reserva
             // 
-            this.txb_destino_reserva.Location = new System.Drawing.Point(428, 340);
+            this.txb_destino_reserva.Location = new System.Drawing.Point(653, 471);
             this.txb_destino_reserva.Name = "txb_destino_reserva";
             this.txb_destino_reserva.Size = new System.Drawing.Size(335, 20);
             this.txb_destino_reserva.TabIndex = 105;
@@ -425,7 +430,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 348);
+            this.label9.Location = new System.Drawing.Point(18, 504);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(40, 13);
             this.label9.TabIndex = 104;
@@ -433,7 +438,7 @@
             // 
             // txb_origem_reserva
             // 
-            this.txb_origem_reserva.Location = new System.Drawing.Point(56, 341);
+            this.txb_origem_reserva.Location = new System.Drawing.Point(66, 497);
             this.txb_origem_reserva.Name = "txb_origem_reserva";
             this.txb_origem_reserva.Size = new System.Drawing.Size(304, 20);
             this.txb_origem_reserva.TabIndex = 105;
@@ -441,7 +446,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(8, 376);
+            this.label10.Location = new System.Drawing.Point(18, 532);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(85, 13);
             this.label10.TabIndex = 106;
@@ -450,7 +455,7 @@
             // txb_hodometro_inicial_reserva
             // 
             this.txb_hodometro_inicial_reserva.Enabled = false;
-            this.txb_hodometro_inicial_reserva.Location = new System.Drawing.Point(104, 371);
+            this.txb_hodometro_inicial_reserva.Location = new System.Drawing.Point(114, 527);
             this.txb_hodometro_inicial_reserva.Name = "txb_hodometro_inicial_reserva";
             this.txb_hodometro_inicial_reserva.Size = new System.Drawing.Size(100, 20);
             this.txb_hodometro_inicial_reserva.TabIndex = 107;
@@ -458,17 +463,17 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(5, 11);
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(4, 5);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(157, 13);
+            this.label16.Size = new System.Drawing.Size(220, 20);
             this.label16.TabIndex = 99;
             this.label16.Text = "Selecione um carro abaixo";
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(317, 225);
+            this.button1.Location = new System.Drawing.Point(323, 329);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(28, 22);
             this.button1.TabIndex = 108;
@@ -478,18 +483,38 @@
             // pb_FotoCarro
             // 
             this.pb_FotoCarro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pb_FotoCarro.Location = new System.Drawing.Point(497, 28);
+            this.pb_FotoCarro.Location = new System.Drawing.Point(614, 28);
             this.pb_FotoCarro.Name = "pb_FotoCarro";
-            this.pb_FotoCarro.Size = new System.Drawing.Size(214, 138);
+            this.pb_FotoCarro.Size = new System.Drawing.Size(333, 215);
             this.pb_FotoCarro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb_FotoCarro.TabIndex = 91;
             this.pb_FotoCarro.TabStop = false;
+            // 
+            // mtb_horario_inicio
+            // 
+            this.mtb_horario_inicio.Location = new System.Drawing.Point(333, 438);
+            this.mtb_horario_inicio.Mask = "90:00";
+            this.mtb_horario_inicio.Name = "mtb_horario_inicio";
+            this.mtb_horario_inicio.Size = new System.Drawing.Size(33, 20);
+            this.mtb_horario_inicio.TabIndex = 109;
+            this.mtb_horario_inicio.ValidatingType = typeof(System.DateTime);
+            // 
+            // mtb_horario_fim
+            // 
+            this.mtb_horario_fim.Location = new System.Drawing.Point(849, 444);
+            this.mtb_horario_fim.Mask = "90:00";
+            this.mtb_horario_fim.Name = "mtb_horario_fim";
+            this.mtb_horario_fim.Size = new System.Drawing.Size(33, 20);
+            this.mtb_horario_fim.TabIndex = 109;
+            this.mtb_horario_fim.ValidatingType = typeof(System.DateTime);
             // 
             // F_Reserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1033, 644);
+            this.Controls.Add(this.mtb_horario_fim);
+            this.Controls.Add(this.mtb_horario_inicio);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.txb_hodometro_inicial_reserva);
             this.Controls.Add(this.label10);
@@ -528,13 +553,14 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lb_marca);
             this.Controls.Add(this.lb_Modelo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(5, 0);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "F_Reserva";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "F_Reserva";
+            this.Text = "Reservar veículos";
             this.Load += new System.EventHandler(this.F_Reserva_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_veiculos_reserva)).EndInit();
@@ -574,8 +600,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dtp_inicio_reserva;
-        private System.Windows.Forms.DateTimePicker dtp_fim_reserva;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txb_destino_reserva;
@@ -585,5 +609,9 @@
         private System.Windows.Forms.TextBox txb_hodometro_inicial_reserva;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.DateTimePicker dtp_inicio_reserva;
+        public System.Windows.Forms.DateTimePicker dtp_fim_reserva;
+        public System.Windows.Forms.MaskedTextBox mtb_horario_inicio;
+        public System.Windows.Forms.MaskedTextBox mtb_horario_fim;
     }
 }

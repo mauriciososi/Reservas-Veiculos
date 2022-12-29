@@ -216,9 +216,9 @@
             // pb_FotoCarro
             // 
             this.pb_FotoCarro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pb_FotoCarro.Location = new System.Drawing.Point(417, 15);
+            this.pb_FotoCarro.Location = new System.Drawing.Point(385, 15);
             this.pb_FotoCarro.Name = "pb_FotoCarro";
-            this.pb_FotoCarro.Size = new System.Drawing.Size(349, 285);
+            this.pb_FotoCarro.Size = new System.Drawing.Size(411, 275);
             this.pb_FotoCarro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb_FotoCarro.TabIndex = 34;
             this.pb_FotoCarro.TabStop = false;
@@ -408,6 +408,7 @@
             this.Name = "frm_AdicionarVeiculos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AdicionarVeiculos";
+            this.Load += new System.EventHandler(this.frm_AdicionarVeiculos_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pb_FotoCarro)).EndInit();
             this.ResumeLayout(false);

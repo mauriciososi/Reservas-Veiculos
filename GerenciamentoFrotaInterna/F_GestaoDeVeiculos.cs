@@ -43,12 +43,12 @@ namespace GerenciamentoFrotaInterna
         {
             frm_AdicionarVeiculos frm_AdicionarVeiculos = new frm_AdicionarVeiculos();
             frm_AdicionarVeiculos.ShowDialog();
-            dgv_veiculos.DataSource = Banco.ObterVeiculoIdPlaca();
+            dgv_veiculos.DataSource = Veiculos.ObterVeiculoIdPlaca();
         }
 
         private void F_GestaoDeVeiculos_Load(object sender, EventArgs e)
         {
-            dgv_veiculos.DataSource = Banco.ObterVeiculoIdPlaca();
+            dgv_veiculos.DataSource = Veiculos.ObterVeiculoIdPlaca();
             dgv_veiculos.Columns[0].Width = 80;
             dgv_veiculos.Columns[1].Width = 120;
              
@@ -66,7 +66,7 @@ namespace GerenciamentoFrotaInterna
                 DataTable dt = new DataTable();
                 string vid = dgv.SelectedRows[0].Cells[0].Value.ToString();
                 //irá carregar cada linha selecionad
-                dt = Banco.ObterDadosVeiculo(vid); //retorna dados do usuário que possui o ID especifico do parametro para "dt"
+                dt = Veiculos.ObterDadosVeiculo(vid); //retorna dados do usuário que possui o ID especifico do parametro para "dt"
                 //Field<Int64>("usr_id_usuario").ToString();
                 
                 cb_empresa.Text = dt.Rows[0].Field<Int32>("car_empresa").ToString();
@@ -150,8 +150,8 @@ namespace GerenciamentoFrotaInterna
 
 
             //Chama método "AtualizarUsuario" da classe "Banco"
-            Banco.AtualizarVeiculo(o_veiculo);
-            dgv_veiculos.DataSource = Banco.ObterVeiculoIdPlaca();
+            Veiculos.AtualizarVeiculo(o_veiculo);
+            dgv_veiculos.DataSource = Veiculos.ObterVeiculoIdPlaca();
             dgv_veiculos.CurrentCell = dgv_veiculos[0, linha]; //Indica qual linha deve estar selecionada, no caso a que foi guardada
 
 
@@ -163,7 +163,7 @@ namespace GerenciamentoFrotaInterna
             DialogResult res = MessageBox.Show("                Confirma exclusão?    ", "                        Excluir?     ", MessageBoxButtons.YesNo);
             if (res == DialogResult.Yes)
             {
-                Banco.ExcluirVeiculo(txb_placa.Text);
+                Veiculos.ExcluirVeiculo(txb_placa.Text);
                 //Após deletar através do método, remove a linha do DataGridView
                 //ao invés de chamar o método para carregar novamente o DataGridView
                 dgv_veiculos.Rows.Remove(dgv_veiculos.CurrentRow);

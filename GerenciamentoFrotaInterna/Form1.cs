@@ -203,9 +203,31 @@ namespace GerenciamentoFrotaInterna
         private void novaReservaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             F_Reserva f_reserva = new F_Reserva();
+            //CreateMyDateTimePicker();
+            DateTimePicker dateTimePicker1 = new DateTimePicker();
+
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+
+            // Set the MinDate and MaxDate.
+            dateTimePicker1.MinDate = new DateTime(2022, 12, 28);
+            dateTimePicker1.MaxDate = new DateTime(2022, 12, 28);
+            dateTimePicker1.CustomFormat = "MMMM dd, yyyy - dddd";
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
             f_reserva.ShowDialog();
 
 
+        }
+
+        private void underConstructionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            testeDate tst= new testeDate();
+            tst.ShowDialog();
+        }
+
+        private void underConstructionToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            testeDate tst = new testeDate();
+            tst.ShowDialog();
         }
     }  
 }

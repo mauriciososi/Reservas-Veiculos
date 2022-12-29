@@ -19,27 +19,6 @@ namespace GerenciamentoFrotaInterna
             conexao.Open();
             return conexao;
         }
-
-        public static DataTable ObterTodosFuncionarios()
-        {
-            SqlDataAdapter da = null;
-            DataTable dt = new DataTable();
-            try
-            {
-               var vcon = ConexaoBanco();
-               var cmd = vcon.CreateCommand();
-               cmd.CommandText = "SELECT * FROM tbl_usuarios";
-               da = new SqlDataAdapter(cmd.CommandText, vcon);
-               da.Fill(dt);
-               vcon.Close();
-               return dt;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-        }
         public static DataTable consulta(string sql)
         {
             SqlDataAdapter da = null;
@@ -60,9 +39,9 @@ namespace GerenciamentoFrotaInterna
                 throw ex;
             }
         }
-        //-----------------------------------------------------------------------------//
-        // INÍCIO-Funções do FORM F_GestaoDeUsuarios                                   //
-        //-----------------------------------------------------------------------------//
+        //--------------------------------------------------------------------------------------------//
+        // INÍCIO-Funções do FORM F_GestaoDeUsuario (Fica na classe Banco devido uso do "DataTable")  //
+        //--------------------------------------------------------------------------------------------//
         public static DataTable ObterUsuarioIdNome()
         {
             SqlDataAdapter da = null;
@@ -105,29 +84,7 @@ namespace GerenciamentoFrotaInterna
             }
 
         }
-        //public static DataTable ObterDadosUsuarioUserAcesso(string useracesso)
-        //{
-        //    SqlDataAdapter da = null;
-        //    DataTable dt = new DataTable();
-        //    try
-        //    {
-        //        var vcon = ConexaoBanco();
-        //        var cmd = vcon.CreateCommand();
-        //        cmd.CommandText = "SELECT *  FROM tbl_usuarios WHERE usr_usuario= '"+useracesso+"' ";
-        //        da = new SqlDataAdapter(cmd.CommandText, vcon);
-        //        da.Fill(dt);
-        //        vcon.Close();
-        //        return dt;
-
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw ex;
-        //    }
-
-        //}
-
-        public static void AtualizarUsuario(Usuario u)
+        public static DataTable ObterDadosUsuarioUserAcesso(string useracesso)
         {
             SqlDataAdapter da = null;
             DataTable dt = new DataTable();
@@ -135,124 +92,12 @@ namespace GerenciamentoFrotaInterna
             {
                 var vcon = ConexaoBanco();
                 var cmd = vcon.CreateCommand();
-                cmd.CommandText = "UPDATE tbl_usuarios SET usr_usuario='" + u.w_usuario + "', usr_senha='" + u.w_senha + "'," + "usr_cod_empresa=" + u.w_empresa + ", usr_matricula =" + u.w_matricula + "," + "usr_departamento ='" + u.w_departamento + "',usr_nome ='" + u.w_nome + "'," + "usr_sobre_nome ='" + u.w_sobrenome + "',usr_cnh =" + u.w_cnh +"," +
-                                                               "usr_Nivel_usuario ="+u.w_nivel_acesso+"," +
-                                                            //   "usr_data_atualizacao="+ u.w_data_cnh + "," +
-                                                               "usr_usuario_atualizacao = '" + Globais.useracesso + "' WHERE usr_matricula =" +u.w_matricula;
-
-                da = new SqlDataAdapter(cmd.CommandText, vcon);
-                cmd.ExecuteNonQuery();
-                vcon.Close();
-                    
-                
-            }
-            catch (Exception ex)
-            {
-              throw ex;
-            }
-
-         }
-
-        public static void ExcluirUsuario(string id)
-        {
-            SqlDataAdapter da = null;
-            DataTable dt = new DataTable();
-            try
-            {
-                var vcon = ConexaoBanco();
-                var cmd = vcon.CreateCommand();
-                cmd.CommandText = "DELETE FROM tbl_usuarios WHERE usr_id_usuario=" + id;
-                da = new SqlDataAdapter(cmd.CommandText, vcon);
-                cmd.ExecuteNonQuery();
-                vcon.Close();
-            }
-            catch (Exception ex)
-            {
-               throw ex;
-            }
-
-        }
-        //-----------------------------------------------------------------------------//
-        // FIM-Funções do FORM F_GestaoDeUsuarios                                      //
-        //-----------------------------------------------------------------------------//
-
-        //-----------------------------------------------------------------------------//
-        // INÍCIO-Funções do FORM F_GestaoDeVeiculos                                   //
-        //-----------------------------------------------------------------------------//
-        public static DataTable ObterVeiculoIdPlaca()
-        {
-            SqlDataAdapter da = null;
-            DataTable dt = new DataTable();
-            try
-            {
-                var vcon = ConexaoBanco();
-                var cmd = vcon.CreateCommand();
-                cmd.CommandText = "SELECT car_id as ID, car_placa as PLACA, car_marca as MARCA, car_modelo as MODELO  FROM tbl_veiculos";
-                da = new SqlDataAdapter(cmd.CommandText,vcon);
-                da.Fill(dt);
-                vcon.Close();
-                return dt;
-                
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-        }
-        public static DataTable ObterDadosVeiculo(string id)
-        {
-            SqlDataAdapter da = null;
-            DataTable dt = new DataTable();
-            try
-            {
-                var vcon = ConexaoBanco();
-                var cmd = vcon.CreateCommand();
-                cmd.CommandText = "SELECT *  FROM tbl_veiculos WHERE car_id=" + id;
+                cmd.CommandText = "SELECT *  FROM tbl_usuarios WHERE usr_usuario= '"+useracesso+"' ";
                 da = new SqlDataAdapter(cmd.CommandText, vcon);
                 da.Fill(dt);
                 vcon.Close();
                 return dt;
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
 
-        }
-
-        public static void AtualizarVeiculo(Veiculos v)
-        {
-            SqlDataAdapter da = null;
-            DataTable dt = new DataTable();
-            try
-            {
-                var vcon = ConexaoBanco();
-                var cmd = vcon.CreateCommand();
-                cmd.CommandText =  "UPDATE tbl_veiculos SET car_placa='" + v.v_placa + "',car_ano=" + v.v_ano + ",car_marca='" + v.v_marca + "',car_modelo='" + v.v_modelo + "',car_portas=" + v.v_portas + ",car_cor='" + v.v_cor + "',car_foto='" + v.v_foto + "',car_chassi='" + v.v_chassi + "',car_combustivel='" + v.v_combustivel + "',car_tipo='" + v.v_tipo + "',car_hodometro=" + v.v_hodometro + ",car_situacao='" + v.v_situacao + "',car_usuario_atualizacao='"+ Globais.useracesso+ "' WHERE car_placa= '"+v.v_placa+"'";
-                da = new SqlDataAdapter(cmd.CommandText, vcon);
-                cmd.ExecuteNonQuery();
-                vcon.Close();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-
-        }
-
-        public static void ExcluirVeiculo(string placa)
-        {
-            SqlDataAdapter da = null;
-            DataTable dt = new DataTable();
-            try
-            {
-                var vcon = ConexaoBanco();
-                var cmd = vcon.CreateCommand();
-                cmd.CommandText = "DELETE FROM tbl_veiculos WHERE car_placa= '"+placa+"'";
-                da = new SqlDataAdapter(cmd.CommandText, vcon);
-                cmd.ExecuteNonQuery();
-                ConexaoBanco().Close();
             }
             catch (Exception ex)
             {
@@ -263,10 +108,6 @@ namespace GerenciamentoFrotaInterna
         //-----------------------------------------------------------------------------//
         // FIM-Funções do FORM F_GestaoDeUsuarios                                      //
         //-----------------------------------------------------------------------------//
-
-
-
-
 
         //------------------------FUNÇÕES/METODOS USUARIOS-----------------------------//
         // INÍCIO-Funções do FORM frm_novousuario (Form2.cs[Design] "Novo usuário"     //
@@ -279,8 +120,8 @@ namespace GerenciamentoFrotaInterna
                 MessageBox.Show("Usuário informado já existe, verifique");
                 return;
             }
-            //try
-           // {
+            try
+           {
                 var cmd = ConexaoBanco().CreateCommand();
                 cmd.CommandText = "INSERT INTO tbl_usuarios (" +
                     "usr_usuario, " +
@@ -329,12 +170,12 @@ namespace GerenciamentoFrotaInterna
                 cmd.ExecuteNonQuery();
                 MessageBox.Show("Novo usuário inserido com sucesso.");
                 ConexaoBanco().Close();
-           // }
-           // catch (Exception ex)
-           // {
-           //     MessageBox.Show("Erro ao gravar novo usuário, verifique!");
-                //throw;
-           // }
+           }
+           catch (Exception ex)
+           {
+              MessageBox.Show("Erro ao gravar novo usuário, verifique!");
+           throw;
+           }
         }
         //------------------------FUNÇÕES/METODOS USUARIOS-----------------------------//
         // FIM-Funções do FORM frm_novousuario (Form2.cs[Design] "Novo usuário"        //
@@ -353,8 +194,8 @@ namespace GerenciamentoFrotaInterna
                 MessageBox.Show("Veículo informado já existe, verifique");
                 return;
             }
-            //try
-            // {
+         try
+         {
             var cmd = ConexaoBanco().CreateCommand();
             cmd.CommandText = "INSERT INTO tbl_veiculos (" +
                 "car_empresa," +
@@ -412,12 +253,12 @@ namespace GerenciamentoFrotaInterna
             cmd.ExecuteNonQuery();
             MessageBox.Show("Novo veículo inserido com sucesso.");
             ConexaoBanco().Close();
-            // }
-            // catch (Exception ex)
-            // {
-            //     MessageBox.Show("Erro ao gravar novo usuário, verifique!");
-            //throw;
-            // }
+         }
+         catch (Exception ex)
+         {
+               MessageBox.Show("Erro ao gravar novo usuário, verifique!");
+               throw;
+         }
 
 
         }
@@ -425,6 +266,72 @@ namespace GerenciamentoFrotaInterna
         //------------------------FUNÇÕES/METODOS VEICULOS-----------------------------//
         // FIM-Funções do FORM  (AdicionarVeiculos.cs[Design] "Novo veiculo"           //
         //-----------------------------------------------------------------------------//
+
+
+        //------------------------FUNÇÕES/METODOS RESERVAS-----------------------------//
+        // INICIO-Funções do FORM  (F_Reserva.cs[Design] "Nova reserva"                //
+        //-----------------------------------------------------------------------------//
+        // INICIO-ROTINAS GRAVAR RESERVAS
+        public static void NovaReserva(Reservas r)
+        {
+            try
+            {
+                var cmd = ConexaoBanco().CreateCommand();
+                cmd.CommandText = "INSERT INTO tbl_reservas (" +
+                    "res_codigo_reserva,"   +
+                    "res_matricula,"        +
+                    "res_placa,"            +
+                    "res_odometro_inicial," +
+                    "res_origem,"           +
+                    "res_destino,"          +
+                    "res_inicio_reserva,"   +
+                    "res_hora_inicio_reserva," +
+                    "res_fim_reserva,"      +
+                    "res_hora_fim_reserva," +
+                    "res_data_cadastro,"    +
+                    "res_usuario_cadastro)" +
+                    "VALUES (@res_codigo_reserva," +
+                    "@res_matricula,"        +
+                    "@res_placa,"            +
+                    "@res_odometro_inicial," +
+                    "@res_origem,"           +
+                    "@res_destino,"          +
+                    "@res_inicio_reserva,"   +
+                    "@res_hora_inicio_reserva," +
+                    "@res_fim_reserva,"      +
+                    "@res_hora_fim_reserva," +
+                    "@res_data_cadastro,"    +
+                    "@res_usuario_cadastro)";
+                cmd.Parameters.AddWithValue("@res_codigo_reserva", r.r_codigo_reserva);
+                cmd.Parameters.AddWithValue("@res_matricula", r.r_matricula);
+                cmd.Parameters.AddWithValue("@res_placa", r.r_placa);
+                cmd.Parameters.AddWithValue("@res_odometro_inicial", r.r_odometro_inicial);
+                cmd.Parameters.AddWithValue("@res_origem", r.r_origem);
+                cmd.Parameters.AddWithValue("@res_destino", r.r_destino);
+                cmd.Parameters.AddWithValue("@res_inicio_reserva", r.r_inicio_reserva);
+                cmd.Parameters.AddWithValue("@res_hora_inicio_reserva", r.r_hora_inicio_reserva);
+                cmd.Parameters.AddWithValue("@res_fim_reserva", r.r_fim_reserva);
+                cmd.Parameters.AddWithValue("@res_hora_fim_reserva", r.r_hora_fim_reserva);
+                cmd.Parameters.AddWithValue("@res_data_cadastro", r.r_registro);
+                cmd.Parameters.AddWithValue("@res_usuario_cadastro", r.r_user_registro);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("          Reserva Nr #" + r.r_codigo_reserva + " confirmada.", "           CONFIRMAÇÃO DA RESERVA", MessageBoxButtons.OK);
+
+                 ConexaoBanco().Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erro ao gravar novo usuário, verifique!");
+                throw;
+            }
+
+
+        }
+        // FIM-ROTINAS GRAVAR RESERVAS
+        //------------------------FUNÇÕES/METODOS RESERVAS-----------------------------//
+        // FIM-Funções do FORM  (F_Reserva.cs[Design] "Nova reserva"           //
+        //-----------------------------------------------------------------------------//
+
 
         //----------------------------INICIO-ROTINAS GERAIS----------------------------//
         //                    (USUARIO/VEICULOS/RESERVAS/OFICINAS)                     //
@@ -478,7 +385,9 @@ namespace GerenciamentoFrotaInterna
             }
             return res;
         }
-        
+
+
+
 
 
         //----------------------------FIM-ROTINAS GERAIS-------------------------------//

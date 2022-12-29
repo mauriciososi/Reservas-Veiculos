@@ -55,7 +55,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lb_marca = new System.Windows.Forms.Label();
             this.lb_Modelo = new System.Windows.Forms.Label();
-            this.pb_FotoCarro = new System.Windows.Forms.PictureBox();
             this.dgv_veiculos = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_Fechar = new System.Windows.Forms.Button();
@@ -63,9 +62,10 @@
             this.btn_SalvarAlteracao = new System.Windows.Forms.Button();
             this.btn_GravarNovo = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pb_FotoCarro)).BeginInit();
+            this.pb_FotoCarro = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_veiculos)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pb_FotoCarro)).BeginInit();
             this.SuspendLayout();
             // 
             // cb_situacao
@@ -324,16 +324,6 @@
             this.lb_Modelo.TabIndex = 58;
             this.lb_Modelo.Text = "Modelo";
             // 
-            // pb_FotoCarro
-            // 
-            this.pb_FotoCarro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pb_FotoCarro.Location = new System.Drawing.Point(360, 221);
-            this.pb_FotoCarro.Name = "pb_FotoCarro";
-            this.pb_FotoCarro.Size = new System.Drawing.Size(216, 145);
-            this.pb_FotoCarro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pb_FotoCarro.TabIndex = 61;
-            this.pb_FotoCarro.TabStop = false;
-            // 
             // dgv_veiculos
             // 
             this.dgv_veiculos.AllowUserToAddRows = false;
@@ -354,7 +344,7 @@
             this.dgv_veiculos.ReadOnly = true;
             this.dgv_veiculos.RowHeadersVisible = false;
             this.dgv_veiculos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_veiculos.Size = new System.Drawing.Size(428, 191);
+            this.dgv_veiculos.Size = new System.Drawing.Size(428, 154);
             this.dgv_veiculos.TabIndex = 64;
             this.dgv_veiculos.SelectionChanged += new System.EventHandler(this.dgv_veiculos_SelectionChanged);
             // 
@@ -388,7 +378,7 @@
             this.btn_Excluir.Name = "btn_Excluir";
             this.btn_Excluir.Size = new System.Drawing.Size(98, 23);
             this.btn_Excluir.TabIndex = 0;
-            this.btn_Excluir.Text = "Excluir usuário";
+            this.btn_Excluir.Text = "Excluir veículo";
             this.btn_Excluir.UseVisualStyleBackColor = true;
             this.btn_Excluir.Click += new System.EventHandler(this.btn_Excluir_Click);
             // 
@@ -410,18 +400,28 @@
             this.btn_GravarNovo.Name = "btn_GravarNovo";
             this.btn_GravarNovo.Size = new System.Drawing.Size(119, 23);
             this.btn_GravarNovo.TabIndex = 0;
-            this.btn_GravarNovo.Text = "Gravar novo usuário";
+            this.btn_GravarNovo.Text = "Criar novo veículo";
             this.btn_GravarNovo.UseVisualStyleBackColor = true;
             this.btn_GravarNovo.Click += new System.EventHandler(this.btn_GravarNovo_Click);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(357, 369);
+            this.label10.Location = new System.Drawing.Point(494, 346);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(151, 13);
             this.label10.TabIndex = 66;
             this.label10.Text = "Clique duplo para alterar a foto";
+            // 
+            // pb_FotoCarro
+            // 
+            this.pb_FotoCarro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pb_FotoCarro.Location = new System.Drawing.Point(417, 172);
+            this.pb_FotoCarro.Name = "pb_FotoCarro";
+            this.pb_FotoCarro.Size = new System.Drawing.Size(292, 167);
+            this.pb_FotoCarro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pb_FotoCarro.TabIndex = 61;
+            this.pb_FotoCarro.TabStop = false;
             // 
             // F_GestaoDeVeiculos
             // 
@@ -464,9 +464,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestão de Veículos - Frota YKK";
             this.Load += new System.EventHandler(this.F_GestaoDeVeiculos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pb_FotoCarro)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_veiculos)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pb_FotoCarro)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

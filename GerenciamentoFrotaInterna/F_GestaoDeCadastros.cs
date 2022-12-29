@@ -40,6 +40,10 @@ namespace GerenciamentoFrotaInterna
                 //Field<Int64>("usr_id_usuario").ToString();
                 txb_id.Text = dt.Rows[0].Field<Int32>("usr_id_usuario").ToString();
                 cb_empresa.Text = dt.Rows[0].Field<Int32>("usr_cod_empresa").ToString();
+               
+                Usuario desc = new Usuario();
+                txb_descEmpresa.Text = desc.DescricaoEmpresa(this.cb_empresa, this.txb_descEmpresa);
+
                 txb_nome.Text = dt.Rows[0].Field<string>("usr_nome").ToString();
                 txb_sobreNome.Text = dt.Rows[0].Field<string>("usr_sobre_nome").ToString();
                 txb_matricula.Text = dt.Rows[0].Field<Int32>("usr_matricula").ToString();
@@ -50,23 +54,7 @@ namespace GerenciamentoFrotaInterna
                 txb_usuario.Text = dt.Rows[0].Field<string>("usr_usuario").ToString();
                 txb_senha.Text = dt.Rows[0].Field<string>("usr_senha").ToString();
 
-                int valor = Convert.ToInt32(cb_empresa.Text);
-                if (valor == 1)
-                {
-                    txb_descEmpresa.Text = "MATRIZ/SP CORPORATE";
-                }
-                else if (valor == 04)
-                {
-                    txb_descEmpresa.Text = "YOSHIDA BRASIL";
-                }
-                else if (valor == 10)
-                {
-                    txb_descEmpresa.Text = "FÁBRICA/SOROCABA";
-                }
-                else if (valor == 13)
-                {
-                    txb_descEmpresa.Text = "FÁBRICA/YOSHIDA NORDESTE";
-                }
+               
 
             }
                 
@@ -74,24 +62,12 @@ namespace GerenciamentoFrotaInterna
 
         private void cb_empresa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Revisar esse código para não necessitar repetir como abaixo
-            int valor = Convert.ToInt32(cb_empresa.Text);
-            if (valor == 1)
-            {
-                txb_descEmpresa.Text = "MATRIZ/SP CORPORATE";
-            }
-            else if (valor == 04)
-            {
-                txb_descEmpresa.Text = "YOSHIDA BRASIL";
-            }
-            else if (valor == 10)
-            {
-                txb_descEmpresa.Text = "FÁBRICA/SOROCABA";
-            }
-            else if (valor == 13)
-            {
-                txb_descEmpresa.Text = "FÁBRICA/YOSHIDA NORDESTE";
-            }
+
+            Usuario desc = new Usuario();
+            txb_descEmpresa.Text = desc.DescricaoEmpresa(this.cb_empresa, this.txb_descEmpresa);
+
+
+            
         }
 
         private void btn_GravarNovo_Click(object sender, EventArgs e)
@@ -123,7 +99,7 @@ namespace GerenciamentoFrotaInterna
             o_usuario.w_user_registro = Globais.useracesso;
             
             //Chama método "AtualizarUsuario" da classe "Banco"
-            Banco.AtualizarUsuario(o_usuario);
+            Usuario.AtualizarUsuario(o_usuario);
             dgv_usuarios.DataSource = Banco.ObterUsuarioIdNome();
             dgv_usuarios.CurrentCell = dgv_usuarios[0, linha]; //Indica qual linha deve estar selecionada, no caso a que foi guardada
 
@@ -134,7 +110,7 @@ namespace GerenciamentoFrotaInterna
             DialogResult res = MessageBox.Show("                Confirma exclusão?    ","                        Excluir?     ",MessageBoxButtons.YesNo);
             if(res == DialogResult.Yes)
             {
-                Banco.ExcluirUsuario(txb_id.Text);
+                Usuario.ExcluirUsuario(txb_id.Text);
                 //Após deletar através do método, remove a linha do DataGridView
                 //ao invés de chamar o método para carregar novamente o DataGridView
                 dgv_usuarios.Rows.Remove(dgv_usuarios.CurrentRow);

@@ -49,6 +49,7 @@
             this.reservasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.novaReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alterarReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.underConstructionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.devoluçãoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,6 +59,7 @@
             this.executivaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.underConstructionToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lb_LedLogado)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -73,9 +75,9 @@
             this.panel1.Controls.Add(this.Acesso);
             this.panel1.Controls.Add(this.lb_LedLogado);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 430);
+            this.panel1.Location = new System.Drawing.Point(0, 574);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 20);
+            this.panel1.Size = new System.Drawing.Size(967, 20);
             this.panel1.TabIndex = 0;
             // 
             // lb_nomeUsuario
@@ -135,7 +137,7 @@
             this.sairToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(967, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -184,7 +186,7 @@
             // gestãoDeUsuáriosToolStripMenuItem
             // 
             this.gestãoDeUsuáriosToolStripMenuItem.Name = "gestãoDeUsuáriosToolStripMenuItem";
-            this.gestãoDeUsuáriosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gestãoDeUsuáriosToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
             this.gestãoDeUsuáriosToolStripMenuItem.Text = "Gestão de Usuários";
             this.gestãoDeUsuáriosToolStripMenuItem.Click += new System.EventHandler(this.gestãoDeUsuáriosToolStripMenuItem_Click);
             // 
@@ -201,19 +203,21 @@
             // gestãoDeVeículosToolStripMenuItem
             // 
             this.gestãoDeVeículosToolStripMenuItem.Name = "gestãoDeVeículosToolStripMenuItem";
-            this.gestãoDeVeículosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gestãoDeVeículosToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.gestãoDeVeículosToolStripMenuItem.Text = "Gestão de Veículos";
             this.gestãoDeVeículosToolStripMenuItem.Click += new System.EventHandler(this.gestãoDeVeículosToolStripMenuItem_Click);
             // 
             // adicionarVeículosToolStripMenuItem
             // 
             this.adicionarVeículosToolStripMenuItem.Name = "adicionarVeículosToolStripMenuItem";
-            this.adicionarVeículosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.adicionarVeículosToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
             this.adicionarVeículosToolStripMenuItem.Text = "Adicionar Veículos";
             this.adicionarVeículosToolStripMenuItem.Click += new System.EventHandler(this.adicionarVeículosToolStripMenuItem_Click);
             // 
             // oficinasToolStripMenuItem
             // 
+            this.oficinasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.underConstructionToolStripMenuItem1});
             this.oficinasToolStripMenuItem.Name = "oficinasToolStripMenuItem";
             this.oficinasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.oficinasToolStripMenuItem.Text = "Oficinas";
@@ -238,9 +242,18 @@
             // 
             // alterarReservaToolStripMenuItem
             // 
+            this.alterarReservaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.underConstructionToolStripMenuItem});
             this.alterarReservaToolStripMenuItem.Name = "alterarReservaToolStripMenuItem";
             this.alterarReservaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.alterarReservaToolStripMenuItem.Text = "Alterar Reserva";
+            // 
+            // underConstructionToolStripMenuItem
+            // 
+            this.underConstructionToolStripMenuItem.Name = "underConstructionToolStripMenuItem";
+            this.underConstructionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.underConstructionToolStripMenuItem.Text = "Under Construction";
+            this.underConstructionToolStripMenuItem.Click += new System.EventHandler(this.underConstructionToolStripMenuItem_Click);
             // 
             // devoluçãoToolStripMenuItem
             // 
@@ -302,25 +315,34 @@
             this.pictureBox1.BackgroundImage = global::GerenciamentoFrotaInterna.Properties.Resources.YKK_Logo_1;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.Image = global::GerenciamentoFrotaInterna.Properties.Resources.YKK_Logo_1;
-            this.pictureBox1.Location = new System.Drawing.Point(192, 76);
+            this.pictureBox1.Location = new System.Drawing.Point(289, 120);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(374, 262);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
+            // underConstructionToolStripMenuItem1
+            // 
+            this.underConstructionToolStripMenuItem1.Name = "underConstructionToolStripMenuItem1";
+            this.underConstructionToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.underConstructionToolStripMenuItem1.Text = "Under Construction";
+            this.underConstructionToolStripMenuItem1.Click += new System.EventHandler(this.underConstructionToolStripMenuItem1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::GerenciamentoFrotaInterna.Properties.Resources.YKK_Logo_1;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(967, 594);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.ForeColor = System.Drawing.SystemColors.Control;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Frota Interna YKK";
@@ -367,6 +389,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem gestãoDeVeículosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem adicionarVeículosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem underConstructionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem underConstructionToolStripMenuItem1;
     }
 }
 

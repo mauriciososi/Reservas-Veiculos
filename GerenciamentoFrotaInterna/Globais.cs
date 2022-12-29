@@ -15,8 +15,8 @@ namespace GerenciamentoFrotaInterna
         public static string useracesso = " ";
         public static string caminhoFotos = @"C:\Curso C#\Frota Interna YKK\GerenciamentoFrotaInterna\Imagens\carros\";
 
-        ////** Rotina de limpeza
-        //public void ClearTextBoxes(Control control)
+        //** Rotina de limpeza
+        //public static void ClearTextBoxes(Control control)
         //{
         //    foreach (Control c in control.Controls)
         //    {
@@ -43,6 +43,7 @@ namespace GerenciamentoFrotaInterna
         //        }
         //    }
         //}
+
 
 
     }
