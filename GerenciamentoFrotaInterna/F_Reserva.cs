@@ -12,6 +12,22 @@ using System.Windows.Forms;
 
 namespace GerenciamentoFrotaInterna
 {
+    //colocado para tirar linhad da máscara, ver se funciona
+    //namespace System.Windows.Forms
+    //{
+    //    public static class Methods
+    //    {
+    //        public static string TextNoFormatting(this MaskedTextBox _mask)
+    //        {
+    //            _mask.TextMaskFormat = MaskFormat.ExcludePromptAndLiterals;
+    //            String retString = _mask.Text;
+    //            _mask.TextMaskFormat = MaskFormat.IncludePromptAndLiterals;
+    //            return retString;
+    //        }
+    //    }
+    //}
+
+
     public partial class F_Reserva : Form
     {
         public F_Reserva()
@@ -79,7 +95,7 @@ namespace GerenciamentoFrotaInterna
             //dtp_fim_reserva.Enabled = false;
 
             //Inicia a tela com botão desabilitado, até serem preenchidos corretamente todos os campos
-            btn_GravarNovo.Enabled = false;
+           // btn_GravarNovo.Enabled = false;
             
             ////CreateMyDateTimePicker();
             //DateTimePicker dateTimePicker1 = new DateTimePicker();
@@ -123,133 +139,79 @@ namespace GerenciamentoFrotaInterna
             Close();
         }
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-            //Reservas wReserva = new Reservas();
-            //wReserva.CheckReservasDates();
-            if (DateTime.Today > (Convert.ToDateTime(dtp_inicio_reserva)))
-            {
-                MessageBox.Show("Data INÍCIO informada, é inferior a data de hoje, verifique");
+        
 
-                return;
-            }
-
-
-
-            if (DateTime.Today > (Convert.ToDateTime(dtp_fim_reserva)))
-            {
-                MessageBox.Show("Data FIM informada, é inferior a data de hoje, verifique");
-
-                return;
-            }
-
-
-
-            if ((Convert.ToDateTime(dtp_inicio_reserva)) > (Convert.ToDateTime(dtp_fim_reserva)))
-            {
-                MessageBox.Show("Data fim reserva menor que data inicio, verifique");
-
-                return;
-            }
-
-
-            if (Convert.ToDateTime(mtb_horario_inicio) > (Convert.ToDateTime(mtb_horario_fim)))
-            {
-                MessageBox.Show("Hora INÍCIO informada, é superior a hora FINAL da reserva, verifique");
-
-                return;
-            }
-
-
-            btn_GravarNovo.Enabled = true;
-
-            //datepicker blockdates
-            // verificar bloqueio de datas no calendário ....colocar aqui
-
-        } 
         private void btn_GravarNovo_Click(object sender, EventArgs e)
         {
-            foreach (Control item in this.Controls)
-            {
-
-                if (item is System.Windows.Forms.TextBox && String.IsNullOrWhiteSpace(item.Text))
-                {
-                    MessageBox.Show("O campo >>>: " + item.Name + "<<< é de preenchimento obrigatório!");
-                    item.Focus();
-                    return;
-                }
-            }
-
-
 
            
-
-
-            //if (DateTime.Today.TimeOfDay) > (Convert.ToDateTime(mtb_horario_fim)))
-            //{
-            //    MessageBox.Show("Hora informada, é superior a hora FINAL da reserva, verifique");
-
-            //    return;
-            //}
-
-
-
             Reservas r_reserva = new Reservas();
-            r_reserva.CheckReservasDates();
-            
-
-
-
-            r_reserva.r_placa = txb_placa.Text;          
-            r_reserva.r_matricula = Convert.ToInt32(txb_matricula.Text.ToString());
-            r_reserva.r_odometro_inicial = Convert.ToInt32(txb_hodometro_inicial_reserva.Text.ToString());
-            r_reserva.r_odometro_final = 0; // por enquanto deixar zero...ver depois
-            r_reserva.r_origem = txb_origem_reserva.Text;
-            r_reserva.r_destino = txb_destino_reserva.Text;
-           
-            DateTime fromdate = Convert.ToDateTime(dtp_inicio_reserva.Text);
-            r_reserva.r_inicio_reserva = fromdate;
-            DateTime todate = Convert.ToDateTime(dtp_fim_reserva.Text);
-            r_reserva.r_hora_inicio_reserva = Convert.ToDateTime(mtb_horario_inicio.Text);
-            
-            r_reserva.r_fim_reserva = todate;
-            r_reserva.r_hora_fim_reserva = Convert.ToDateTime(mtb_horario_fim.Text);
-            // r_reserva.r_devolucao    // por enquanto deixar zero...ver depois
-
-            DateTime wDate = new DateTime();
-            r_reserva.r_registro = DateTime.Now;
-            r_reserva.r_user_registro = Globais.useracesso;
-
-            int numero_reserva = Reservas.getNumeroReserva(0);
-            r_reserva.r_codigo_reserva = Convert.ToInt32(numero_reserva);
-                        
-
-            //Chama método "NovaReserva" da classe "Banco" passando parâmetro "r_reserva"
-            Banco.NovaReserva(r_reserva);
-
-
-            //Limpa todo os campos (criar método para procedimento abaixo)
-             
-
-            foreach (var control in this.Controls)
+            try
             {
-                TextBox tb = control as TextBox;
-                if (tb != null)
+                if (DateTime.Today > dateTimePicker1.Value)
+                { MessageBox.Show("Data INÍCIO informada, é inferior a data de hoje, verifique");  }
+                else if (DateTime.Today > dateTimePicker2.Value)
+                { MessageBox.Show("Data FIM informada, é inferior a data de hoje, verifique"); }
+              //  else if (dateTimePicker1.Value > dateTimePicker2.Value)
+              //  { MessageBox.Show("Data fim reserva menor que data inicio, verifique"); }
+                else if (TimeSpan.Parse(mtb_horario_inicio.Text) == r_reserva.r_hora_inicio_reserva)  //nesse momento variável zerada
+                { MessageBox.Show("A hora inicial deve ser informada"); }
+                else if (TimeSpan.Parse(mtb_horario_fim.Text) == r_reserva.r_hora_fim_reserva)    //nesse momento variável zerada
+                { MessageBox.Show("A hora final deve ser informada"); }
+                else if ((txb_origem_reserva.Text == " "))
+                { MessageBox.Show("A origem deve ser informada"); }
+                else if (txb_destino_reserva.Text == " ")
+                { MessageBox.Show("O destino deve ser informado"); }
+                else
                 {
-                    tb.Text = string.Empty;
-                }
-                ComboBox cb = control as ComboBox;
-                if (cb != null)
-                {
-                    cb.Text = string.Empty;
-                }
-                PictureBox pbx = control as PictureBox;
-                if (pbx != null)
-                {
-                    pbx.Image = null;
+                    
+
+                    r_reserva.r_placa = txb_placa.Text;
+                    r_reserva.r_matricula = Convert.ToInt32(txb_matricula.Text.ToString());
+                    r_reserva.r_odometro_inicial = Convert.ToInt32(txb_hodometro_inicial_reserva.Text.ToString());
+                    r_reserva.r_odometro_final = 0; // por enquanto deixar zero...ver depois
+                    r_reserva.r_origem = txb_origem_reserva.Text;
+                    r_reserva.r_destino = txb_destino_reserva.Text;
+                    r_reserva.r_inicio_reserva = dateTimePicker1.Value;
+                    r_reserva.r_hora_inicio_reserva = TimeSpan.Parse(mtb_horario_inicio.Text);
+                    r_reserva.r_fim_reserva = dateTimePicker2.Value;
+                    r_reserva.r_hora_fim_reserva = TimeSpan.Parse(mtb_horario_fim.Text);
+                    r_reserva.r_registro = DateTime.Now;
+                    r_reserva.r_user_registro = Globais.useracesso;
+                    int numero_reserva = Reservas.getNumeroReserva(0);
+                    r_reserva.r_codigo_reserva = Convert.ToInt32(numero_reserva);
+                    //Chama método "NovaReserva" da classe "Banco" passando parâmetro "r_reserva"
+                    Banco.NovaReserva(r_reserva);
+
+
+                    //Limpa todo os campos (criar método para procedimento abaixo)
+
+
+                    foreach (var control in this.Controls)
+                    {
+                        TextBox tb = control as TextBox;
+                        if (tb != null)
+                        {
+                            tb.Text = string.Empty;
+                        }
+                        ComboBox cb = control as ComboBox;
+                        if (cb != null)
+                        {
+                            cb.Text = string.Empty;
+                        }
+                        PictureBox pbx = control as PictureBox;
+                        if (pbx != null)
+                        {
+                            pbx.Image = null;
+                        }
+                    }
+                    Close();
                 }
             }
-            Close();
+            catch (Exception erro)
+            {
+                MessageBox.Show("Ocorreu o seguinte erro ao gravar a reserva: " + erro.ToString());
+            }
         }
     }
 }

@@ -57,9 +57,6 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dtp_inicio_reserva = new System.Windows.Forms.DateTimePicker();
-            this.dtp_fim_reserva = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.txb_destino_reserva = new System.Windows.Forms.TextBox();
@@ -72,9 +69,19 @@
             this.pb_FotoCarro = new System.Windows.Forms.PictureBox();
             this.mtb_horario_inicio = new System.Windows.Forms.MaskedTextBox();
             this.mtb_horario_fim = new System.Windows.Forms.MaskedTextBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label17 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_veiculos_reserva)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_FotoCarro)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -311,6 +318,7 @@
             // 
             // txb_nome_completo
             // 
+            this.txb_nome_completo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txb_nome_completo.Enabled = false;
             this.txb_nome_completo.Location = new System.Drawing.Point(63, 330);
             this.txb_nome_completo.Name = "txb_nome_completo";
@@ -367,46 +375,18 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(15, 416);
+            this.label5.Location = new System.Drawing.Point(379, 416);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(150, 20);
             this.label5.TabIndex = 99;
             this.label5.Text = "Dados da reserva";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 444);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 13);
-            this.label1.TabIndex = 100;
-            this.label1.Text = "Data início ";
-            // 
-            // dtp_inicio_reserva
-            // 
-            this.dtp_inicio_reserva.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dtp_inicio_reserva.CustomFormat = "";
-            this.dtp_inicio_reserva.Location = new System.Drawing.Point(82, 438);
-            this.dtp_inicio_reserva.Name = "dtp_inicio_reserva";
-            this.dtp_inicio_reserva.Size = new System.Drawing.Size(217, 20);
-            this.dtp_inicio_reserva.TabIndex = 101;
-            this.dtp_inicio_reserva.Value = new System.DateTime(2022, 12, 26, 22, 23, 0, 0);
-            this.dtp_inicio_reserva.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
-            // dtp_fim_reserva
-            // 
-            this.dtp_fim_reserva.Location = new System.Drawing.Point(607, 444);
-            this.dtp_fim_reserva.Name = "dtp_fim_reserva";
-            this.dtp_fim_reserva.Size = new System.Drawing.Size(217, 20);
-            this.dtp_fim_reserva.TabIndex = 103;
-            this.dtp_fim_reserva.Value = new System.DateTime(2022, 12, 27, 15, 52, 1, 0);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(555, 446);
+            this.label2.Location = new System.Drawing.Point(24, 51);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
+            this.label2.Size = new System.Drawing.Size(54, 13);
             this.label2.TabIndex = 102;
             this.label2.Text = "Data fim";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -414,39 +394,46 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(604, 478);
+            this.label3.Location = new System.Drawing.Point(24, 77);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 13);
+            this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 104;
             this.label3.Text = "Destino";
             // 
             // txb_destino_reserva
             // 
-            this.txb_destino_reserva.Location = new System.Drawing.Point(653, 471);
+            this.txb_destino_reserva.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txb_destino_reserva.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.txb_destino_reserva.Location = new System.Drawing.Point(84, 70);
             this.txb_destino_reserva.Name = "txb_destino_reserva";
-            this.txb_destino_reserva.Size = new System.Drawing.Size(335, 20);
+            this.txb_destino_reserva.Size = new System.Drawing.Size(350, 20);
             this.txb_destino_reserva.TabIndex = 105;
+            this.txb_destino_reserva.Text = "[DIGITE ONDE SERÁ CHEGADA]";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(18, 504);
+            this.label9.Location = new System.Drawing.Point(23, 77);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(40, 13);
+            this.label9.Size = new System.Drawing.Size(46, 13);
             this.label9.TabIndex = 104;
             this.label9.Text = "Origem";
             // 
             // txb_origem_reserva
             // 
-            this.txb_origem_reserva.Location = new System.Drawing.Point(66, 497);
+            this.txb_origem_reserva.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txb_origem_reserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_origem_reserva.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.txb_origem_reserva.Location = new System.Drawing.Point(72, 70);
             this.txb_origem_reserva.Name = "txb_origem_reserva";
-            this.txb_origem_reserva.Size = new System.Drawing.Size(304, 20);
+            this.txb_origem_reserva.Size = new System.Drawing.Size(342, 20);
             this.txb_origem_reserva.TabIndex = 105;
+            this.txb_origem_reserva.Text = "[DIGITE O PONTO DE PARTIDA]";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(18, 532);
+            this.label10.Location = new System.Drawing.Point(495, 385);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(85, 13);
             this.label10.TabIndex = 106;
@@ -455,7 +442,7 @@
             // txb_hodometro_inicial_reserva
             // 
             this.txb_hodometro_inicial_reserva.Enabled = false;
-            this.txb_hodometro_inicial_reserva.Location = new System.Drawing.Point(114, 527);
+            this.txb_hodometro_inicial_reserva.Location = new System.Drawing.Point(586, 382);
             this.txb_hodometro_inicial_reserva.Name = "txb_hodometro_inicial_reserva";
             this.txb_hodometro_inicial_reserva.Size = new System.Drawing.Size(100, 20);
             this.txb_hodometro_inicial_reserva.TabIndex = 107;
@@ -492,41 +479,120 @@
             // 
             // mtb_horario_inicio
             // 
-            this.mtb_horario_inicio.Location = new System.Drawing.Point(333, 438);
-            this.mtb_horario_inicio.Mask = "90:00";
+            this.mtb_horario_inicio.Location = new System.Drawing.Point(375, 43);
+            this.mtb_horario_inicio.Mask = "00:00";
             this.mtb_horario_inicio.Name = "mtb_horario_inicio";
-            this.mtb_horario_inicio.Size = new System.Drawing.Size(33, 20);
+            this.mtb_horario_inicio.Size = new System.Drawing.Size(39, 20);
             this.mtb_horario_inicio.TabIndex = 109;
+            this.mtb_horario_inicio.Text = "0000";
+            this.mtb_horario_inicio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mtb_horario_inicio.ValidatingType = typeof(System.DateTime);
             // 
             // mtb_horario_fim
             // 
-            this.mtb_horario_fim.Location = new System.Drawing.Point(849, 444);
-            this.mtb_horario_fim.Mask = "90:00";
+            this.mtb_horario_fim.Location = new System.Drawing.Point(394, 45);
+            this.mtb_horario_fim.Mask = "00:00";
             this.mtb_horario_fim.Name = "mtb_horario_fim";
-            this.mtb_horario_fim.Size = new System.Drawing.Size(33, 20);
+            this.mtb_horario_fim.Size = new System.Drawing.Size(40, 20);
             this.mtb_horario_fim.TabIndex = 109;
+            this.mtb_horario_fim.Text = "0000";
+            this.mtb_horario_fim.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mtb_horario_fim.ValidatingType = typeof(System.DateTime);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(71, 44);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(263, 20);
+            this.dateTimePicker1.TabIndex = 110;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(84, 45);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(264, 20);
+            this.dateTimePicker2.TabIndex = 111;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(329, 472);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(41, 13);
+            this.label17.TabIndex = 112;
+            this.label17.Text = "label17";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label18);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.dateTimePicker1);
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.txb_origem_reserva);
+            this.groupBox1.Controls.Add(this.mtb_horario_inicio);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(8, 439);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(435, 132);
+            this.groupBox1.TabIndex = 113;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Início reserva";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label19);
+            this.groupBox2.Controls.Add(this.txb_destino_reserva);
+            this.groupBox2.Controls.Add(this.label2);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.dateTimePicker2);
+            this.groupBox2.Controls.Add(this.mtb_horario_fim);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Location = new System.Drawing.Point(552, 439);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(446, 132);
+            this.groupBox2.TabIndex = 113;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Fim reserva";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(23, 51);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 111;
+            this.label1.Text = "Data ";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(340, 49);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(34, 13);
+            this.label18.TabIndex = 111;
+            this.label18.Text = "Hora";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(356, 50);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(34, 13);
+            this.label19.TabIndex = 111;
+            this.label19.Text = "Hora";
             // 
             // F_Reserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1033, 644);
-            this.Controls.Add(this.mtb_horario_fim);
-            this.Controls.Add(this.mtb_horario_inicio);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.txb_hodometro_inicial_reserva);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.label17);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.txb_origem_reserva);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.txb_destino_reserva);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.dtp_fim_reserva);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.dtp_inicio_reserva);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label16);
+            this.Controls.Add(this.txb_hodometro_inicial_reserva);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label14);
@@ -565,6 +631,10 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_veiculos_reserva)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_FotoCarro)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -599,7 +669,6 @@
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txb_destino_reserva;
@@ -609,9 +678,15 @@
         private System.Windows.Forms.TextBox txb_hodometro_inicial_reserva;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button button1;
-        public System.Windows.Forms.DateTimePicker dtp_inicio_reserva;
-        public System.Windows.Forms.DateTimePicker dtp_fim_reserva;
         public System.Windows.Forms.MaskedTextBox mtb_horario_inicio;
         public System.Windows.Forms.MaskedTextBox mtb_horario_fim;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label19;
     }
 }

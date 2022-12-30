@@ -19,6 +19,32 @@ namespace GerenciamentoFrotaInterna
             f_Login.ShowDialog();
         }
 
+        private void abreForm(int nivel, Form f)
+        {
+            if (Globais.logado)
+            {
+                if (Globais.nivel >= nivel)
+                {
+                    
+                    f.ShowDialog();
+
+
+                }
+                else
+                {
+                    MessageBox.Show("Acesso não permitido");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("É necessário ter usuário logado.");
+            }
+        }
+
+
+
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -228,6 +254,12 @@ namespace GerenciamentoFrotaInterna
         {
             testeDate tst = new testeDate();
             tst.ShowDialog();
+        }
+
+        private void reservasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Consulta form_consulta = new Consulta();
+            abreForm(1,form_consulta);
         }
     }  
 }

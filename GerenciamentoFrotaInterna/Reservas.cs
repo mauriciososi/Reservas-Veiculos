@@ -21,11 +21,11 @@ namespace GerenciamentoFrotaInterna
         public string r_origem;
         public string r_destino;
         public DateTime r_inicio_reserva;          //Data início reserva
-        public DateTime r_hora_inicio_reserva;     //Hora inicio reserva prevista
+        public TimeSpan r_hora_inicio_reserva;     //Hora inicio reserva prevista
         public DateTime r_fim_reserva;             //Data fim reserva prevista
-        public DateTime r_hora_fim_reserva;        //Hora fim reserva prevista
+        public TimeSpan r_hora_fim_reserva;        //Hora fim reserva prevista
         public DateTime r_devolucao;               //Data que realmente foi a devolução veículo
-        public DateTime r_hora_dev_reserva;        //Hora inicio reserva prevista
+        public TimeSpan r_hora_dev_reserva;        //Hora inicio reserva prevista
         public DateTime r_registro;                //Data em que foi criado registro na tabela
         public string r_user_registro;             //Usuário que criou registro na tabela
         public DateTime r_data_atualizacao;        //Data em que atualizou registro na tabela

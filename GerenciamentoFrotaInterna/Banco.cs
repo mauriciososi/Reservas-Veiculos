@@ -35,7 +35,7 @@ namespace GerenciamentoFrotaInterna
             }
             catch (Exception ex)
             {
-               // ConexaoBanco().Close();
+                // ConexaoBanco().Close();
                 throw ex;
             }
         }
@@ -274,8 +274,8 @@ namespace GerenciamentoFrotaInterna
         // INICIO-ROTINAS GRAVAR RESERVAS
         public static void NovaReserva(Reservas r)
         {
-            try
-            {
+            //try
+            //{
                 var cmd = ConexaoBanco().CreateCommand();
                 cmd.CommandText = "INSERT INTO tbl_reservas (" +
                     "res_codigo_reserva,"   +
@@ -318,12 +318,12 @@ namespace GerenciamentoFrotaInterna
                 MessageBox.Show("          Reserva Nr #" + r.r_codigo_reserva + " confirmada.", "           CONFIRMAÇÃO DA RESERVA", MessageBoxButtons.OK);
 
                  ConexaoBanco().Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Erro ao gravar novo usuário, verifique!");
-                throw;
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBox.Show("Erro ao gravar novo usuário, verifique!");
+            //    throw;
+            //}
 
 
         }

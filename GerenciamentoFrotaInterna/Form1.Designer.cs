@@ -46,6 +46,7 @@
             this.gestãoDeVeículosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.adicionarVeículosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oficinasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.underConstructionToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.reservasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.novaReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.alterarReservaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,7 +60,6 @@
             this.executivaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.underConstructionToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lb_LedLogado)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -179,7 +179,7 @@
             this.usuáriosToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gestãoDeUsuáriosToolStripMenuItem});
             this.usuáriosToolStripMenuItem1.Name = "usuáriosToolStripMenuItem1";
-            this.usuáriosToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.usuáriosToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
             this.usuáriosToolStripMenuItem1.Text = "Usuários";
             this.usuáriosToolStripMenuItem1.Click += new System.EventHandler(this.usuáriosToolStripMenuItem1_Click);
             // 
@@ -196,7 +196,7 @@
             this.gestãoDeVeículosToolStripMenuItem,
             this.adicionarVeículosToolStripMenuItem});
             this.veículosToolStripMenuItem.Name = "veículosToolStripMenuItem";
-            this.veículosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.veículosToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.veículosToolStripMenuItem.Text = "Veículos";
             this.veículosToolStripMenuItem.Click += new System.EventHandler(this.veículosToolStripMenuItem_Click);
             // 
@@ -219,9 +219,16 @@
             this.oficinasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.underConstructionToolStripMenuItem1});
             this.oficinasToolStripMenuItem.Name = "oficinasToolStripMenuItem";
-            this.oficinasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.oficinasToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.oficinasToolStripMenuItem.Text = "Oficinas";
             this.oficinasToolStripMenuItem.Click += new System.EventHandler(this.oficinasToolStripMenuItem_Click);
+            // 
+            // underConstructionToolStripMenuItem1
+            // 
+            this.underConstructionToolStripMenuItem1.Name = "underConstructionToolStripMenuItem1";
+            this.underConstructionToolStripMenuItem1.Size = new System.Drawing.Size(178, 22);
+            this.underConstructionToolStripMenuItem1.Text = "Under Construction";
+            this.underConstructionToolStripMenuItem1.Click += new System.EventHandler(this.underConstructionToolStripMenuItem1_Click);
             // 
             // reservasToolStripMenuItem1
             // 
@@ -236,7 +243,7 @@
             // novaReservaToolStripMenuItem
             // 
             this.novaReservaToolStripMenuItem.Name = "novaReservaToolStripMenuItem";
-            this.novaReservaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.novaReservaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.novaReservaToolStripMenuItem.Text = "Nova Reserva";
             this.novaReservaToolStripMenuItem.Click += new System.EventHandler(this.novaReservaToolStripMenuItem_Click);
             // 
@@ -245,20 +252,20 @@
             this.alterarReservaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.underConstructionToolStripMenuItem});
             this.alterarReservaToolStripMenuItem.Name = "alterarReservaToolStripMenuItem";
-            this.alterarReservaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alterarReservaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.alterarReservaToolStripMenuItem.Text = "Alterar Reserva";
             // 
             // underConstructionToolStripMenuItem
             // 
             this.underConstructionToolStripMenuItem.Name = "underConstructionToolStripMenuItem";
-            this.underConstructionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.underConstructionToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.underConstructionToolStripMenuItem.Text = "Under Construction";
             this.underConstructionToolStripMenuItem.Click += new System.EventHandler(this.underConstructionToolStripMenuItem_Click);
             // 
             // devoluçãoToolStripMenuItem
             // 
             this.devoluçãoToolStripMenuItem.Name = "devoluçãoToolStripMenuItem";
-            this.devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.devoluçãoToolStripMenuItem.Text = "Devolução";
             // 
             // consultasToolStripMenuItem
@@ -277,6 +284,7 @@
             this.reservasToolStripMenuItem.Name = "reservasToolStripMenuItem";
             this.reservasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.reservasToolStripMenuItem.Text = "Reservas";
+            this.reservasToolStripMenuItem.Click += new System.EventHandler(this.reservasToolStripMenuItem_Click);
             // 
             // usuáriosToolStripMenuItem
             // 
@@ -321,13 +329,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
-            // 
-            // underConstructionToolStripMenuItem1
-            // 
-            this.underConstructionToolStripMenuItem1.Name = "underConstructionToolStripMenuItem1";
-            this.underConstructionToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
-            this.underConstructionToolStripMenuItem1.Text = "Under Construction";
-            this.underConstructionToolStripMenuItem1.Click += new System.EventHandler(this.underConstructionToolStripMenuItem1_Click);
             // 
             // Form1
             // 
