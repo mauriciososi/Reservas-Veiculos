@@ -73,10 +73,13 @@
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.label17 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btn_consultar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_veiculos_reserva)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_FotoCarro)).BeginInit();
@@ -86,18 +89,19 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btn_consultar);
             this.panel1.Controls.Add(this.btn_Fechar);
             this.panel1.Controls.Add(this.btn_GravarNovo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 612);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1033, 32);
+            this.panel1.Size = new System.Drawing.Size(1010, 32);
             this.panel1.TabIndex = 94;
             // 
             // btn_Fechar
             // 
             this.btn_Fechar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Fechar.Location = new System.Drawing.Point(695, 3);
+            this.btn_Fechar.Location = new System.Drawing.Point(899, 4);
             this.btn_Fechar.Name = "btn_Fechar";
             this.btn_Fechar.Size = new System.Drawing.Size(98, 23);
             this.btn_Fechar.TabIndex = 0;
@@ -130,7 +134,7 @@
             this.dgv_veiculos_reserva.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_veiculos_reserva.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_veiculos_reserva.EnableHeadersVisualStyles = false;
-            this.dgv_veiculos_reserva.Location = new System.Drawing.Point(8, 28);
+            this.dgv_veiculos_reserva.Location = new System.Drawing.Point(15, 28);
             this.dgv_veiculos_reserva.MultiSelect = false;
             this.dgv_veiculos_reserva.Name = "dgv_veiculos_reserva";
             this.dgv_veiculos_reserva.ReadOnly = true;
@@ -394,7 +398,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 77);
+            this.label3.Location = new System.Drawing.Point(29, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 104;
@@ -403,7 +407,8 @@
             // txb_destino_reserva
             // 
             this.txb_destino_reserva.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txb_destino_reserva.ForeColor = System.Drawing.SystemColors.ButtonShadow;
+            this.txb_destino_reserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_destino_reserva.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.txb_destino_reserva.Location = new System.Drawing.Point(84, 70);
             this.txb_destino_reserva.Name = "txb_destino_reserva";
             this.txb_destino_reserva.Size = new System.Drawing.Size(350, 20);
@@ -413,7 +418,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(23, 77);
+            this.label9.Location = new System.Drawing.Point(29, 77);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(46, 13);
             this.label9.TabIndex = 104;
@@ -423,8 +428,8 @@
             // 
             this.txb_origem_reserva.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txb_origem_reserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_origem_reserva.ForeColor = System.Drawing.SystemColors.ButtonShadow;
-            this.txb_origem_reserva.Location = new System.Drawing.Point(72, 70);
+            this.txb_origem_reserva.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txb_origem_reserva.Location = new System.Drawing.Point(81, 70);
             this.txb_origem_reserva.Name = "txb_origem_reserva";
             this.txb_origem_reserva.Size = new System.Drawing.Size(342, 20);
             this.txb_origem_reserva.TabIndex = 105;
@@ -433,7 +438,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(495, 385);
+            this.label10.Location = new System.Drawing.Point(495, 389);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(85, 13);
             this.label10.TabIndex = 106;
@@ -451,7 +456,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(4, 5);
+            this.label16.Location = new System.Drawing.Point(11, 5);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(220, 20);
             this.label16.TabIndex = 99;
@@ -479,7 +484,7 @@
             // 
             // mtb_horario_inicio
             // 
-            this.mtb_horario_inicio.Location = new System.Drawing.Point(375, 43);
+            this.mtb_horario_inicio.Location = new System.Drawing.Point(384, 43);
             this.mtb_horario_inicio.Mask = "00:00";
             this.mtb_horario_inicio.Name = "mtb_horario_inicio";
             this.mtb_horario_inicio.Size = new System.Drawing.Size(39, 20);
@@ -501,13 +506,15 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(71, 44);
+            this.dateTimePicker1.CustomFormat = "dd/MM/YYYY";
+            this.dateTimePicker1.Location = new System.Drawing.Point(80, 44);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(263, 20);
             this.dateTimePicker1.TabIndex = 110;
             // 
             // dateTimePicker2
             // 
+            this.dateTimePicker2.CustomFormat = "dd/MM/YYYY";
             this.dateTimePicker2.Location = new System.Drawing.Point(84, 45);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(264, 20);
@@ -533,10 +540,28 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(8, 439);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(435, 132);
+            this.groupBox1.Size = new System.Drawing.Size(479, 141);
             this.groupBox1.TabIndex = 113;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Início reserva";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(349, 49);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(34, 13);
+            this.label18.TabIndex = 111;
+            this.label18.Text = "Hora";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 51);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(70, 13);
+            this.label1.TabIndex = 111;
+            this.label1.Text = "Data início";
             // 
             // groupBox2
             // 
@@ -554,24 +579,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Fim reserva";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 51);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
-            this.label1.TabIndex = 111;
-            this.label1.Text = "Data ";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(340, 49);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(34, 13);
-            this.label18.TabIndex = 111;
-            this.label18.Text = "Hora";
-            // 
             // label19
             // 
             this.label19.AutoSize = true;
@@ -581,11 +588,44 @@
             this.label19.TabIndex = 111;
             this.label19.Text = "Hora";
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(708, 386);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(151, 13);
+            this.label20.TabIndex = 114;
+            this.label20.Text = "Reservas ativas da placa";
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(857, 380);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(32, 20);
+            this.button2.TabIndex = 115;
+            this.button2.Text = "...";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // btn_consultar
+            // 
+            this.btn_consultar.Location = new System.Drawing.Point(121, 3);
+            this.btn_consultar.Name = "btn_consultar";
+            this.btn_consultar.Size = new System.Drawing.Size(115, 26);
+            this.btn_consultar.TabIndex = 1;
+            this.btn_consultar.Text = "Consultar reservas";
+            this.btn_consultar.UseVisualStyleBackColor = true;
+            this.btn_consultar.Click += new System.EventHandler(this.btn_consultar_Click);
+            // 
             // F_Reserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1033, 644);
+            this.ClientSize = new System.Drawing.Size(1010, 644);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.label20);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label17);
@@ -688,5 +728,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn_consultar;
     }
 }

@@ -23,8 +23,8 @@ namespace GerenciamentoFrotaInterna
         {
             SqlDataAdapter da = null;
             DataTable dt = new DataTable();
-            try
-            {
+            //try
+            //{
                 var vcon = ConexaoBanco();
                 var cmd = vcon.CreateCommand();
                 cmd.CommandText = sql;
@@ -32,12 +32,12 @@ namespace GerenciamentoFrotaInterna
                 da.Fill(dt);
                 vcon.Close(); 
                 return dt;
-            }
-            catch (Exception ex)
-            {
-                // ConexaoBanco().Close();
-                throw ex;
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    // ConexaoBanco().Close();
+            //    throw ex;
+            //}
         }
         //--------------------------------------------------------------------------------------------//
         // INÍCIO-Funções do FORM F_GestaoDeUsuario (Fica na classe Banco devido uso do "DataTable")  //

@@ -32,7 +32,7 @@ namespace GerenciamentoFrotaInterna
         public string r_user_atualizacao;          //Usuário que atualizou registro na tabela
 
 
-        public static int getNumeroReserva(int nr)
+        public static int GetNumeroReserva(int nr)
         {
 
             var vcon = Banco.ConexaoBanco();
@@ -101,6 +101,60 @@ namespace GerenciamentoFrotaInterna
             }
 
         }
+
+
+        public static DataTable ObterDadosReserva(int reserva)
+        {
+            SqlDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                var vcon = Banco.ConexaoBanco();
+                var cmd = vcon.CreateCommand();
+                cmd.CommandText = "SELECT *  FROM tbl_reservas WHERE res_codigo_reserva=" +reserva;
+                da = new SqlDataAdapter(cmd.CommandText, vcon);
+                da.Fill(dt);
+                vcon.Close();
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
+
+
+        public void ConsultarReservas(string placa)
+        {
+            Consulta consulta = new Consulta(placa);
+            string vQuery = @"SELECT  res_codigo_reserva as 'Nr_RESERVA', 
+                                      res_placa AS 'PLACA',
+                                      res_matricula AS 'MATRICULA',
+                                      res_inicio_reserva AS  'INÍCIO',
+                                      res_hora_inicio_reserva AS HORA,
+                                      res_fim_reserva AS FIM,
+                                      res_hora_fim_reserva AS HORA,
+                                      res_destino 'AS DESTINO' 
+                            FROM tbl_reservas
+                            WHERE res_placa like '%" + placa + "%'";
+
+            consulta.dgv_consulta.DataSource = Banco.consulta(vQuery);
+            //dgv_consulta.Columns[0].Width = 300;
+            
+
+            foreach (DataGridViewColumn column in consulta.dgv_consulta.Columns)
+            {
+                //if (column.DataPropertyName == "res_codigo_reserva")
+                //    column.Width = 10; 
+                //else if (column.DataPropertyName == "res_placa")
+                //    column.Width = 10; 
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+           // consulta.ShowDialog();
+        }
+
 
 
 

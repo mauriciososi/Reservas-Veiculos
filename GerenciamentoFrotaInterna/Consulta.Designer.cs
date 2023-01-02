@@ -156,7 +156,6 @@
             this.btn_buscar.Text = "Pesquisar";
             this.btn_buscar.UseVisualStyleBackColor = true;
             this.btn_buscar.Click += new System.EventHandler(this.btn_buscar_Click);
-            this.btn_buscar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btn_buscar_MouseClick);
             // 
             // Consulta
             // 
@@ -179,7 +178,7 @@
             this.MinimizeBox = false;
             this.Name = "Consulta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Consulta";
+            this.Text = "Consulta de reservas ativas";
             this.Load += new System.EventHandler(this.Consulta_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_consulta)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -189,8 +188,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dgv_consulta;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txb_modelo;
         private System.Windows.Forms.Label label2;
@@ -201,5 +198,6 @@
         private System.Windows.Forms.Button btn_fechar;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_buscar;
+        public System.Windows.Forms.DataGridView dgv_consulta;
     }
 }

@@ -258,8 +258,25 @@ namespace GerenciamentoFrotaInterna
 
         private void reservasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Consulta form_consulta = new Consulta();
-            abreForm(1,form_consulta);
+            //CF_Reserva f_reserva = new F_Reserva();
+            //Reservas reserva = new Reservas();
+            //string placa = txb_placa.Text.ToString();
+            //reserva.ConsultarReservas(placa);
+            string placa = " ";
+            Consulta consulta = new Consulta(placa);
+            consulta.ShowDialog();
+        }
+
+        private void usuáriosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Consultar_Usuario consultar_usuario = new Consultar_Usuario();
+            consultar_usuario.ShowDialog();
+        }
+
+        private void devoluçãoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CheckOut checkout = new CheckOut();
+            checkout.ShowDialog();
         }
     }  
 }

@@ -17,3 +17,6 @@ C:\Curso C#\Frota Interna YKK\GerenciamentoFrotaInterna\obj\Debug\GerenciamentoF
 C:\Curso C#\Frota Interna YKK\GerenciamentoFrotaInterna\obj\Debug\GerenciamentoFrotaInterna.F_Reserva.resources
 C:\Curso C#\Frota Interna YKK\GerenciamentoFrotaInterna\obj\Debug\GerenciamentoFrotaInterna.testeDate.resources
 C:\Curso C#\Frota Interna YKK\GerenciamentoFrotaInterna\obj\Debug\GerenciamentoFrotaInterna.Consulta.resources
+C:\Curso C#\Frota Interna YKK\GerenciamentoFrotaInterna\obj\Debug\GerenciamentoFrotaInterna.Consultar_Usuario.resources
+C:\Curso C#\Frota Interna YKK\GerenciamentoFrotaInterna\obj\Debug\GerenciamentoFrotaInterna.CheckOut.resources
+C:\Curso C#\Frota Interna YKK\GerenciamentoFrotaInterna\obj\Debug\GerenciamentoFrotaInterna.CheckOut2.resources

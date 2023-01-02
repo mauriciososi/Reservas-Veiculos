@@ -51,7 +51,26 @@ namespace GerenciamentoFrotaInterna
             }
 
         }
+        public static DataTable ObterVeiculoByPlaca(string placa)
+        {
+            SqlDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                var vcon = Banco.ConexaoBanco();
+                var cmd = vcon.CreateCommand();
+                cmd.CommandText = "SELECT *  FROM tbl_veiculos WHERE car_placa='"+ placa+"' ";
+                da = new SqlDataAdapter(cmd.CommandText, vcon);
+                da.Fill(dt);
+                vcon.Close();
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
+        }
 
         public static DataTable ObterDadosVeiculo(string id)
         {

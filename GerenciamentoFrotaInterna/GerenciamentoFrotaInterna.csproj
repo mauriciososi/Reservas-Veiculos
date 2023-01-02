@@ -55,11 +55,29 @@
       <DependentUpon>AdicionarVeiculos.cs</DependentUpon>
     </Compile>
     <Compile Include="Banco.cs" />
+    <Compile Include="CheckOut.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckOut.Designer.cs">
+      <DependentUpon>CheckOut.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CheckOut2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CheckOut2.Designer.cs">
+      <DependentUpon>CheckOut2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Consulta.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Consulta.Designer.cs">
       <DependentUpon>Consulta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Consultar_Usuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Consultar_Usuario.Designer.cs">
+      <DependentUpon>Consultar_Usuario.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -117,8 +135,17 @@
     <EmbeddedResource Include="AdicionarVeiculos.resx">
       <DependentUpon>AdicionarVeiculos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CheckOut.resx">
+      <DependentUpon>CheckOut.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CheckOut2.resx">
+      <DependentUpon>CheckOut2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Consulta.resx">
       <DependentUpon>Consulta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Consultar_Usuario.resx">
+      <DependentUpon>Consultar_Usuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>

@@ -152,8 +152,8 @@ namespace GerenciamentoFrotaInterna
                 { MessageBox.Show("Data INÍCIO informada, é inferior a data de hoje, verifique");  }
                 else if (DateTime.Today > dateTimePicker2.Value)
                 { MessageBox.Show("Data FIM informada, é inferior a data de hoje, verifique"); }
-              //  else if (dateTimePicker1.Value > dateTimePicker2.Value)
-              //  { MessageBox.Show("Data fim reserva menor que data inicio, verifique"); }
+                 else if (dateTimePicker1.Value > dateTimePicker2.Value)
+                 { MessageBox.Show("Data fim reserva menor que data inicio, verifique"); }
                 else if (TimeSpan.Parse(mtb_horario_inicio.Text) == r_reserva.r_hora_inicio_reserva)  //nesse momento variável zerada
                 { MessageBox.Show("A hora inicial deve ser informada"); }
                 else if (TimeSpan.Parse(mtb_horario_fim.Text) == r_reserva.r_hora_fim_reserva)    //nesse momento variável zerada
@@ -178,7 +178,7 @@ namespace GerenciamentoFrotaInterna
                     r_reserva.r_hora_fim_reserva = TimeSpan.Parse(mtb_horario_fim.Text);
                     r_reserva.r_registro = DateTime.Now;
                     r_reserva.r_user_registro = Globais.useracesso;
-                    int numero_reserva = Reservas.getNumeroReserva(0);
+                    int numero_reserva = Reservas.GetNumeroReserva(0);
                     r_reserva.r_codigo_reserva = Convert.ToInt32(numero_reserva);
                     //Chama método "NovaReserva" da classe "Banco" passando parâmetro "r_reserva"
                     Banco.NovaReserva(r_reserva);
@@ -212,6 +212,23 @@ namespace GerenciamentoFrotaInterna
             {
                 MessageBox.Show("Ocorreu o seguinte erro ao gravar a reserva: " + erro.ToString());
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string placa = txb_placa.Text.ToString();
+
+            Consulta consulta = new Consulta(placa);
+            consulta.ShowDialog( );
+
+        }
+
+        private void btn_consultar_Click(object sender, EventArgs e)
+        {
+            string placa = txb_placa.Text.ToString();
+
+            Consulta consulta = new Consulta(placa);
+            consulta.ShowDialog();
         }
     }
 }

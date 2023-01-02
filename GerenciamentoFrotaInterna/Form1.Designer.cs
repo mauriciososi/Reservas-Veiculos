@@ -243,7 +243,7 @@
             // novaReservaToolStripMenuItem
             // 
             this.novaReservaToolStripMenuItem.Name = "novaReservaToolStripMenuItem";
-            this.novaReservaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.novaReservaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.novaReservaToolStripMenuItem.Text = "Nova Reserva";
             this.novaReservaToolStripMenuItem.Click += new System.EventHandler(this.novaReservaToolStripMenuItem_Click);
             // 
@@ -252,7 +252,7 @@
             this.alterarReservaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.underConstructionToolStripMenuItem});
             this.alterarReservaToolStripMenuItem.Name = "alterarReservaToolStripMenuItem";
-            this.alterarReservaToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.alterarReservaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.alterarReservaToolStripMenuItem.Text = "Alterar Reserva";
             // 
             // underConstructionToolStripMenuItem
@@ -265,8 +265,9 @@
             // devoluçãoToolStripMenuItem
             // 
             this.devoluçãoToolStripMenuItem.Name = "devoluçãoToolStripMenuItem";
-            this.devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.devoluçãoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.devoluçãoToolStripMenuItem.Text = "Devolução";
+            this.devoluçãoToolStripMenuItem.Click += new System.EventHandler(this.devoluçãoToolStripMenuItem_Click);
             // 
             // consultasToolStripMenuItem
             // 
@@ -291,6 +292,7 @@
             this.usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
             this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.usuáriosToolStripMenuItem.Text = "Usuários";
+            this.usuáriosToolStripMenuItem.Click += new System.EventHandler(this.usuáriosToolStripMenuItem_Click);
             // 
             // veículosDisponíveisToolStripMenuItem
             // 
