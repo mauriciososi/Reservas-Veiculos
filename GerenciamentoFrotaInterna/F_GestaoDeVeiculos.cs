@@ -50,8 +50,9 @@ namespace GerenciamentoFrotaInterna
         {
             dgv_veiculos.DataSource = Veiculos.ObterVeiculoIdPlaca();
             dgv_veiculos.Columns[0].Width = 80;
-            dgv_veiculos.Columns[1].Width = 120;
-             
+            dgv_veiculos.Columns[1].Width = 100;
+            dgv_veiculos.Columns[2].Width = 150;
+            dgv_veiculos.Columns[3].Width = 190;
         }
 
         private void dgv_veiculos_SelectionChanged(object sender, EventArgs e)
@@ -64,11 +65,15 @@ namespace GerenciamentoFrotaInterna
             if (contlinhas > 0)
             {
                 DataTable dt = new DataTable();
-                string vid = dgv.SelectedRows[0].Cells[0].Value.ToString();
-                //irá carregar cada linha selecionad
-                dt = Veiculos.ObterDadosVeiculo(vid); //retorna dados do usuário que possui o ID especifico do parametro para "dt"
-                //Field<Int64>("usr_id_usuario").ToString();
                 
+                //string vid = dgv.SelectedRows[0].Cells[0].Value.ToString();
+                //irá carregar cada linha selecionada
+                //dt = Veiculos.ObterDadosVeiculo(vid); //retorna dados do veiculo que possui o ID especifico do parametro para "dt"
+                
+                string placa = dgv.SelectedRows[0].Cells[0].Value.ToString();
+                dt = Veiculos.ObterVeiculoByPlaca(placa);
+                //Field<Int64>("usr_id_usuario").ToString();
+
                 cb_empresa.Text = dt.Rows[0].Field<Int32>("car_empresa").ToString();
                 txb_ano.Text    = dt.Rows[0].Field<Int32>("car_ano").ToString();
                 txb_modelo.Text = dt.Rows[0].Field<string>("car_modelo").ToString();

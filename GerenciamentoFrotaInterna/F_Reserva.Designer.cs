@@ -31,6 +31,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(F_Reserva));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_consultar = new System.Windows.Forms.Button();
             this.btn_Fechar = new System.Windows.Forms.Button();
             this.btn_GravarNovo = new System.Windows.Forms.Button();
             this.dgv_veiculos_reserva = new System.Windows.Forms.DataGridView();
@@ -79,7 +80,6 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.btn_consultar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_veiculos_reserva)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_FotoCarro)).BeginInit();
@@ -97,6 +97,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1010, 32);
             this.panel1.TabIndex = 94;
+            // 
+            // btn_consultar
+            // 
+            this.btn_consultar.Location = new System.Drawing.Point(121, 3);
+            this.btn_consultar.Name = "btn_consultar";
+            this.btn_consultar.Size = new System.Drawing.Size(115, 26);
+            this.btn_consultar.TabIndex = 1;
+            this.btn_consultar.Text = "Consultar reservas";
+            this.btn_consultar.UseVisualStyleBackColor = true;
+            this.btn_consultar.Click += new System.EventHandler(this.btn_consultar_Click);
             // 
             // btn_Fechar
             // 
@@ -511,6 +521,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(263, 20);
             this.dateTimePicker1.TabIndex = 110;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // dateTimePicker2
             // 
@@ -609,16 +620,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // btn_consultar
-            // 
-            this.btn_consultar.Location = new System.Drawing.Point(121, 3);
-            this.btn_consultar.Name = "btn_consultar";
-            this.btn_consultar.Size = new System.Drawing.Size(115, 26);
-            this.btn_consultar.TabIndex = 1;
-            this.btn_consultar.Text = "Consultar reservas";
-            this.btn_consultar.UseVisualStyleBackColor = true;
-            this.btn_consultar.Click += new System.EventHandler(this.btn_consultar_Click);
-            // 
             // F_Reserva
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -666,7 +667,7 @@
             this.MinimizeBox = false;
             this.Name = "F_Reserva";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Reservar veículos";
+            this.Text = "CHECKIN Veiculos";
             this.Load += new System.EventHandler(this.F_Reserva_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_veiculos_reserva)).EndInit();

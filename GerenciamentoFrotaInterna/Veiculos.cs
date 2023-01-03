@@ -38,7 +38,8 @@ namespace GerenciamentoFrotaInterna
             {
                 var vcon = Banco.ConexaoBanco();
                 var cmd = vcon.CreateCommand();
-                cmd.CommandText = "SELECT car_id as ID, car_placa as PLACA, car_marca as MARCA, car_modelo as MODELO  FROM tbl_veiculos order by car_id ";
+                //cmd.CommandText = "SELECT car_id as ID, car_placa as PLACA, car_marca as MARCA, car_modelo as MODELO  FROM tbl_veiculos order by car_id ";
+                cmd.CommandText = "SELECT car_placa as PLACA, car_marca as MARCA, car_modelo as MODELO, car_combustivel as COMBUSTIVEL  FROM tbl_veiculos order by car_id ";
                 da = new SqlDataAdapter(cmd.CommandText, vcon);
                 da.Fill(dt);
                 vcon.Close();

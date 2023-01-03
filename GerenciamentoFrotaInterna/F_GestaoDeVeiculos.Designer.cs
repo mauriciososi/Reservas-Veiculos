@@ -97,7 +97,7 @@
             this.txb_descEmpresa.Location = new System.Drawing.Point(173, 12);
             this.txb_descEmpresa.Name = "txb_descEmpresa";
             this.txb_descEmpresa.ReadOnly = true;
-            this.txb_descEmpresa.Size = new System.Drawing.Size(172, 20);
+            this.txb_descEmpresa.Size = new System.Drawing.Size(204, 20);
             this.txb_descEmpresa.TabIndex = 60;
             // 
             // cb_tipo
@@ -110,7 +110,7 @@
             "FORÇA DE VENDAS"});
             this.cb_tipo.Location = new System.Drawing.Point(121, 266);
             this.cb_tipo.Name = "cb_tipo";
-            this.cb_tipo.Size = new System.Drawing.Size(223, 21);
+            this.cb_tipo.Size = new System.Drawing.Size(256, 21);
             this.cb_tipo.TabIndex = 11;
             // 
             // cb_marca
@@ -132,7 +132,7 @@
             "VW"});
             this.cb_marca.Location = new System.Drawing.Point(124, 100);
             this.cb_marca.Name = "cb_marca";
-            this.cb_marca.Size = new System.Drawing.Size(223, 21);
+            this.cb_marca.Size = new System.Drawing.Size(253, 21);
             this.cb_marca.TabIndex = 40;
             // 
             // cb_combustivel
@@ -151,7 +151,7 @@
             ""});
             this.cb_combustivel.Location = new System.Drawing.Point(122, 193);
             this.cb_combustivel.Name = "cb_combustivel";
-            this.cb_combustivel.Size = new System.Drawing.Size(223, 21);
+            this.cb_combustivel.Size = new System.Drawing.Size(255, 21);
             this.cb_combustivel.TabIndex = 8;
             // 
             // cb_empresa
@@ -183,7 +183,7 @@
             this.txb_chassi.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txb_chassi.Location = new System.Drawing.Point(121, 163);
             this.txb_chassi.Name = "txb_chassi";
-            this.txb_chassi.Size = new System.Drawing.Size(223, 20);
+            this.txb_chassi.Size = new System.Drawing.Size(256, 20);
             this.txb_chassi.TabIndex = 7;
             // 
             // txb_cor
@@ -191,7 +191,7 @@
             this.txb_cor.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txb_cor.Location = new System.Drawing.Point(215, 135);
             this.txb_cor.Name = "txb_cor";
-            this.txb_cor.Size = new System.Drawing.Size(129, 20);
+            this.txb_cor.Size = new System.Drawing.Size(162, 20);
             this.txb_cor.TabIndex = 6;
             // 
             // txb_qtdportas
@@ -231,7 +231,7 @@
             this.txb_modelo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txb_modelo.Location = new System.Drawing.Point(123, 70);
             this.txb_modelo.Name = "txb_modelo";
-            this.txb_modelo.Size = new System.Drawing.Size(223, 20);
+            this.txb_modelo.Size = new System.Drawing.Size(254, 20);
             this.txb_modelo.TabIndex = 3;
             // 
             // label7
@@ -338,13 +338,13 @@
             this.dgv_veiculos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_veiculos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_veiculos.EnableHeadersVisualStyles = false;
-            this.dgv_veiculos.Location = new System.Drawing.Point(360, 12);
+            this.dgv_veiculos.Location = new System.Drawing.Point(411, 12);
             this.dgv_veiculos.MultiSelect = false;
             this.dgv_veiculos.Name = "dgv_veiculos";
             this.dgv_veiculos.ReadOnly = true;
             this.dgv_veiculos.RowHeadersVisible = false;
             this.dgv_veiculos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_veiculos.Size = new System.Drawing.Size(428, 154);
+            this.dgv_veiculos.Size = new System.Drawing.Size(522, 187);
             this.dgv_veiculos.TabIndex = 64;
             this.dgv_veiculos.SelectionChanged += new System.EventHandler(this.dgv_veiculos_SelectionChanged);
             // 
@@ -355,15 +355,15 @@
             this.panel1.Controls.Add(this.btn_SalvarAlteracao);
             this.panel1.Controls.Add(this.btn_GravarNovo);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 418);
+            this.panel1.Location = new System.Drawing.Point(0, 503);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 32);
+            this.panel1.Size = new System.Drawing.Size(949, 32);
             this.panel1.TabIndex = 65;
             // 
             // btn_Fechar
             // 
             this.btn_Fechar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Fechar.Location = new System.Drawing.Point(340, 3);
+            this.btn_Fechar.Location = new System.Drawing.Point(835, 4);
             this.btn_Fechar.Name = "btn_Fechar";
             this.btn_Fechar.Size = new System.Drawing.Size(98, 23);
             this.btn_Fechar.TabIndex = 0;
@@ -407,7 +407,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(494, 346);
+            this.label10.Location = new System.Drawing.Point(568, 441);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(151, 13);
             this.label10.TabIndex = 66;
@@ -416,9 +416,9 @@
             // pb_FotoCarro
             // 
             this.pb_FotoCarro.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pb_FotoCarro.Location = new System.Drawing.Point(417, 172);
+            this.pb_FotoCarro.Location = new System.Drawing.Point(481, 215);
             this.pb_FotoCarro.Name = "pb_FotoCarro";
-            this.pb_FotoCarro.Size = new System.Drawing.Size(292, 167);
+            this.pb_FotoCarro.Size = new System.Drawing.Size(345, 220);
             this.pb_FotoCarro.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb_FotoCarro.TabIndex = 61;
             this.pb_FotoCarro.TabStop = false;
@@ -427,7 +427,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(949, 535);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgv_veiculos);

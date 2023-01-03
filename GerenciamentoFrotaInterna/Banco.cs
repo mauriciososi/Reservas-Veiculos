@@ -1,4 +1,11 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------------------
+// Autor: Mauricio Silva
+// Sistema de reserva de veículos frota interna YKK
+// 22/12/2022
+// 
+// CLASSE BANCO - TODAS INFORMAÇÕES RELATIVAS AO BANCO DE DADOS SQL
+//-----------------------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -50,7 +57,9 @@ namespace GerenciamentoFrotaInterna
             {
                 var vcon = ConexaoBanco();
                 var cmd = vcon.CreateCommand();
-                cmd.CommandText = "SELECT usr_id_usuario as ID, usr_nome as NOME, usr_sobre_nome as SOBRE_NOME  FROM tbl_usuarios";
+                //cmd.CommandText = "SELECT usr_id_usuario as ID, usr_nome as NOME, usr_sobre_nome as SOBRE_NOME  FROM tbl_usuarios";
+                cmd.CommandText = "SELECT usr_matricula as MATRICULA, usr_nome as NOME, usr_sobre_nome as SOBRE_NOME, usr_cnh AS CNH, usr_data_vencimento_cnh AS VENCIMENTO_CNH  FROM tbl_usuarios";
+
                 da = new SqlDataAdapter(cmd.CommandText, vcon );
                 da.Fill(dt);
                 vcon.Close();
@@ -77,6 +86,28 @@ namespace GerenciamentoFrotaInterna
                 vcon.Close();
                 return dt;
                 
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+        public static DataTable ObterDadosUsuarioByMatricula(int matricula)
+        {
+            SqlDataAdapter da = null;
+            DataTable dt = new DataTable();
+            try
+            {
+                var vcon = ConexaoBanco();
+                var cmd = vcon.CreateCommand();
+                //cmd.CommandText = "SELECT usr_matricula as MATRICULA, usr_nome as NOME, usr_sobre_nome as SOBRE_NOME, usr_cnh AS CNH, usr_data_vencimento_cnh AS VENCIMENTO_CNH  FROM tbl_usuarios WHERE usr_matricula=" + matricula;
+                cmd.CommandText = "SELECT *  FROM tbl_usuarios WHERE usr_matricula=" + matricula;
+                da = new SqlDataAdapter(cmd.CommandText, vcon);
+                da.Fill(dt);
+                vcon.Close();
+                return dt;
+
             }
             catch (Exception ex)
             {

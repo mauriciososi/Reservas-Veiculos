@@ -31,18 +31,28 @@ namespace GerenciamentoFrotaInterna
                                       res_destino AS 'DESTINO' 
                             FROM tbl_reservas JOIN
                                  tbl_usuarios on (res_matricula = usr_matricula)
-                           WHERE usr_usuario = '" + Globais.useracesso + "' AND res_devolucao is null";
+                           WHERE usr_usuario = '" + Globais.useracesso+ "' AND res_desc_historico is null"; 
                               // res_devolucao is null
 
             dgv_checkout.DataSource = Banco.consulta(vQuery);
-            foreach (DataGridViewColumn column in dgv_checkout.Columns)
-            {
-                //if (column.DataPropertyName == "res_codigo_reserva")
-                //    column.Width = 10;
-                //else if (column.DataPropertyName == "res_placa")
-                //    column.Width = 10;
-                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            }
+
+            dgv_checkout.Columns[0].Width = 80;
+            dgv_checkout.Columns[1].Width = 70;
+            dgv_checkout.Columns[2].Width = 75;
+            dgv_checkout.Columns[3].Width = 100;
+            dgv_checkout.Columns[4].Width = 70;
+            dgv_checkout.Columns[5].Width = 70;
+            dgv_checkout.Columns[6].Width = 70;
+            dgv_checkout.Columns[7].Width = 70;
+            dgv_checkout.Columns[8].Width = 320;
+            //foreach (DataGridViewColumn column in dgv_checkout.Columns)
+            //{
+            //    //if (column.DataPropertyName == "res_codigo_reserva")
+            //    //    column.Width = 10;
+            //    //else if (column.DataPropertyName == "res_placa")
+            //    //    column.Width = 10;
+            //    column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            //}
 
 
 
@@ -92,8 +102,9 @@ namespace GerenciamentoFrotaInterna
             //dateTimePicker1.CustomFormat = "MMMM dd, yyyy - dddd";
             //dateTimePicker1.Format = DateTimePickerFormat.Custom;
 
-
-
+            //Desabilita dias anteriores ao dia atual
+            //checkout2.dateTimePicker2.MinDate = DateTime.Today;
+            
 
             checkout2.ShowDialog();
         }

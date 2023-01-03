@@ -31,21 +31,23 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CheckOut2));
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.txb_destino_reserva = new System.Windows.Forms.TextBox();
+            this.txb_ocorrencias = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.label16 = new System.Windows.Forms.Label();
             this.mtb_horario_fim = new System.Windows.Forms.MaskedTextBox();
+            this.txb_hodometro_final = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label18 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.txb_dest_reserva = new System.Windows.Forms.TextBox();
-            this.mtb_horario_inicio = new System.Windows.Forms.MaskedTextBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.mtb_horario_inicio = new System.Windows.Forms.MaskedTextBox();
             this.txb_hodometro_inicial_reserva = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -73,8 +75,6 @@
             this.lb_Modelo = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.txb_codigo_reserva = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label16 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -84,13 +84,13 @@
             // 
             this.groupBox2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Controls.Add(this.txb_destino_reserva);
+            this.groupBox2.Controls.Add(this.txb_ocorrencias);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.dateTimePicker2);
             this.groupBox2.Controls.Add(this.label16);
             this.groupBox2.Controls.Add(this.mtb_horario_fim);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.txb_hodometro_final);
             this.groupBox2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -110,15 +110,15 @@
             this.label19.TabIndex = 111;
             this.label19.Text = "Hora";
             // 
-            // txb_destino_reserva
+            // txb_ocorrencias
             // 
-            this.txb_destino_reserva.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txb_destino_reserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txb_destino_reserva.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.txb_destino_reserva.Location = new System.Drawing.Point(116, 98);
-            this.txb_destino_reserva.Name = "txb_destino_reserva";
-            this.txb_destino_reserva.Size = new System.Drawing.Size(318, 20);
-            this.txb_destino_reserva.TabIndex = 3;
+            this.txb_ocorrencias.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txb_ocorrencias.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_ocorrencias.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txb_ocorrencias.Location = new System.Drawing.Point(116, 98);
+            this.txb_ocorrencias.Name = "txb_ocorrencias";
+            this.txb_ocorrencias.Size = new System.Drawing.Size(318, 20);
+            this.txb_ocorrencias.TabIndex = 3;
             // 
             // label2
             // 
@@ -146,6 +146,16 @@
             this.dateTimePicker2.Size = new System.Drawing.Size(264, 20);
             this.dateTimePicker2.TabIndex = 0;
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(25, 76);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(99, 13);
+            this.label16.TabIndex = 139;
+            this.label16.Text = "Hodômetro Final";
+            // 
             // mtb_horario_fim
             // 
             this.mtb_horario_fim.Location = new System.Drawing.Point(394, 45);
@@ -156,6 +166,15 @@
             this.mtb_horario_fim.Text = "0000";
             this.mtb_horario_fim.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mtb_horario_fim.ValidatingType = typeof(System.DateTime);
+            // 
+            // txb_hodometro_final
+            // 
+            this.txb_hodometro_final.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txb_hodometro_final.Location = new System.Drawing.Point(135, 72);
+            this.txb_hodometro_final.Name = "txb_hodometro_final";
+            this.txb_hodometro_final.Size = new System.Drawing.Size(100, 20);
+            this.txb_hodometro_final.TabIndex = 2;
+            this.txb_hodometro_final.TabStop = false;
             // 
             // groupBox1
             // 
@@ -231,6 +250,17 @@
             this.txb_dest_reserva.TabIndex = 105;
             this.txb_dest_reserva.TabStop = false;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.label10.Location = new System.Drawing.Point(6, 76);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(105, 13);
+            this.label10.TabIndex = 139;
+            this.label10.Text = "Hodômetro inicial";
+            // 
             // mtb_horario_inicio
             // 
             this.mtb_horario_inicio.Enabled = false;
@@ -246,26 +276,6 @@
             this.mtb_horario_inicio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.mtb_horario_inicio.ValidatingType = typeof(System.DateTime);
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(329, 267);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(41, 13);
-            this.label17.TabIndex = 142;
-            this.label17.Text = "label17";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label10.Location = new System.Drawing.Point(6, 76);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(105, 13);
-            this.label10.TabIndex = 139;
-            this.label10.Text = "Hodômetro inicial";
-            // 
             // txb_hodometro_inicial_reserva
             // 
             this.txb_hodometro_inicial_reserva.Enabled = false;
@@ -276,6 +286,15 @@
             this.txb_hodometro_inicial_reserva.Size = new System.Drawing.Size(100, 20);
             this.txb_hodometro_inicial_reserva.TabIndex = 140;
             this.txb_hodometro_inicial_reserva.TabStop = false;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(329, 267);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(41, 13);
+            this.label17.TabIndex = 142;
+            this.label17.Text = "label17";
             // 
             // label15
             // 
@@ -385,6 +404,7 @@
             this.btn_GravarNovo.TabIndex = 4;
             this.btn_GravarNovo.Text = "Realizar checkout";
             this.btn_GravarNovo.UseVisualStyleBackColor = true;
+            this.btn_GravarNovo.Click += new System.EventHandler(this.btn_GravarNovo_Click);
             // 
             // txb_descEmpresa
             // 
@@ -579,25 +599,6 @@
             this.txb_codigo_reserva.TabIndex = 148;
             this.txb_codigo_reserva.TabStop = false;
             // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(135, 72);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TabStop = false;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(25, 76);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(99, 13);
-            this.label16.TabIndex = 139;
-            this.label16.Text = "Hodômetro Final";
-            // 
             // CheckOut2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -637,7 +638,8 @@
             this.MinimizeBox = false;
             this.Name = "CheckOut2";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CheckOut2";
+            this.Text = "CHECKOUT Veiculos";
+            this.Load += new System.EventHandler(this.CheckOut2_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -651,10 +653,9 @@
         #endregion
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox txb_destino_reserva;
+        private System.Windows.Forms.TextBox txb_ocorrencias;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
         public System.Windows.Forms.MaskedTextBox mtb_horario_fim;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label18;
@@ -692,8 +693,9 @@
         public System.Windows.Forms.TextBox txb_placa;
         public System.Windows.Forms.TextBox txb_modelo;
         private System.Windows.Forms.Label label16;
-        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox txb_hodometro_final;
         public System.Windows.Forms.TextBox txb_dest_reserva;
         public System.Windows.Forms.DateTimePicker dateTimePicker1;
+        public System.Windows.Forms.DateTimePicker dateTimePicker2;
     }
 }

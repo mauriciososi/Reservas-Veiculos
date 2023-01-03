@@ -1,4 +1,9 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------------------
+// Autor: Mauricio Silva
+// Sistema de reserva de veículos frota interna YKK
+// 22/12/2022
+//-----------------------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -34,7 +39,7 @@ namespace GerenciamentoFrotaInterna
         {
             InitializeComponent();
         }
-
+        public List<DateTime> datasComConsultas = new List<DateTime>();
         private void label2_Click(object sender, EventArgs e)
         {
 
@@ -50,10 +55,14 @@ namespace GerenciamentoFrotaInterna
             if (contlinhas > 0)
             {
                 DataTable dt = new DataTable();
-                string vid = dgv.SelectedRows[0].Cells[0].Value.ToString();
+                //string vid = dgv.SelectedRows[0].Cells[0].Value.ToString();
                 //irá carregar cada linha selecionad
-                dt = Veiculos.ObterDadosVeiculo(vid); //retorna dados do veículo que possui o ID especifico do parametro para "dt"
-                                                   //Field<Int64>("usr_id_usuario").ToString();
+                //dt = Veiculos.ObterDadosVeiculo(vid); //retorna dados do veículo que possui o ID especifico do parametro para "dt"
+                //                                      //Field<Int64>("usr_id_usuario").ToString();
+
+                string placa = dgv.SelectedRows[0].Cells[0].Value.ToString();
+                dt = Veiculos.ObterVeiculoByPlaca(placa);
+
 
                 //cb_empresa.Text = dt.Rows[0].Field<Int32>("car_empresa").ToString();
                 txb_ano.Text = dt.Rows[0].Field<Int32>("car_ano").ToString();
@@ -78,8 +87,25 @@ namespace GerenciamentoFrotaInterna
         private void F_Reserva_Load(object sender, EventArgs e)
         {
             dgv_veiculos_reserva.DataSource = Veiculos.ObterVeiculoIdPlaca();
-            dgv_veiculos_reserva.Columns[0].Width = 80;
-            dgv_veiculos_reserva.Columns[1].Width = 120;
+            //dgv_veiculos_reserva.Columns[0].Width = 80;
+            //dgv_veiculos_reserva.Columns[1].Width = 120;
+            foreach (DataGridViewColumn column in dgv_veiculos_reserva.Columns)
+            {
+              column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+
+            datasComConsultas = new List<DateTime>
+            {
+                new DateTime(2023, 01, 04),
+                new DateTime(2023, 01, 05),
+                new DateTime(2023, 01, 06)
+            };
+
+            //Desabilita dias anteriores ao dia atual
+            this.dateTimePicker1.MinDate = DateTime.Today;
+            this.dateTimePicker2.MinDate = DateTime.Today;
+
+
             DataTable dtusr = new DataTable();
             dtusr = Usuario.ObterDadosUsuarioUserAcesso(Globais.useracesso);
             cb_empresa.Text = dtusr.Rows[0].Field<Int32>("usr_cod_empresa").ToString();
@@ -89,14 +115,14 @@ namespace GerenciamentoFrotaInterna
 
             Usuario desc = new Usuario();
             txb_descEmpresa.Text = desc.DescricaoEmpresa(this.cb_empresa, this.txb_descEmpresa);
-            
+
             //teste para desabilitar
             //dtp_inicio_reserva.Enabled = false;
             //dtp_fim_reserva.Enabled = false;
 
             //Inicia a tela com botão desabilitado, até serem preenchidos corretamente todos os campos
-           // btn_GravarNovo.Enabled = false;
-            
+            // btn_GravarNovo.Enabled = false;
+
             ////CreateMyDateTimePicker();
             //DateTimePicker dateTimePicker1 = new DateTimePicker();
 
@@ -132,7 +158,7 @@ namespace GerenciamentoFrotaInterna
         //    //  dtp_inicio_reserva = dateTimePicker1;
 
         //}
-
+          
 
             private void btn_Fechar_Click(object sender, EventArgs e)
         {
@@ -229,6 +255,13 @@ namespace GerenciamentoFrotaInterna
 
             Consulta consulta = new Consulta(placa);
             consulta.ShowDialog();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+        //Analisar esse recurso para ser adaptado ao sistema
+           // if (datasComConsultas.Any(d => d == DateTime.Parse(dateTimePicker1.Text))) MessageBox.Show("Esta data nao esta disponivel");
+           // else MessageBox.Show("Data disponivel");
         }
     }
 }

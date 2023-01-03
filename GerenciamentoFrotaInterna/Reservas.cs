@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Collections;
 using System.Runtime.InteropServices.WindowsRuntime;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 
 namespace GerenciamentoFrotaInterna
 {
@@ -30,6 +34,7 @@ namespace GerenciamentoFrotaInterna
         public string r_user_registro;             //Usuário que criou registro na tabela
         public DateTime r_data_atualizacao;        //Data em que atualizou registro na tabela
         public string r_user_atualizacao;          //Usuário que atualizou registro na tabela
+        public string r_ocorrencias;               //Ocorrências e ou detalhes diversos
 
 
         public static int GetNumeroReserva(int nr)
@@ -54,7 +59,38 @@ namespace GerenciamentoFrotaInterna
             return next;
 
         }
+        public static void CheckOutReserva(Reservas r)
+        {
 
+            SqlDataAdapter da = null;
+            DataTable dt = new DataTable();
+            //try
+            //{
+                var vcon = Banco.ConexaoBanco();
+                var cmd = vcon.CreateCommand();                            
+           // cmd.CommandText = "UPDATE tbl_reservas SET res_odometro_inicial=" + r.r_odometro_final+ " WHERE res_placa = '"+r.r_placa+"' AND res_codigo_reserva = " + r.r_codigo_reserva ;
+            cmd.CommandText = "UPDATE tbl_reservas SET res_odometro_final=" + r.r_odometro_final + ",res_desc_historico='" + r.r_ocorrencias + "',res_usuario_atualizacao='"+ Globais.useracesso+"' WHERE res_codigo_reserva = " + r.r_codigo_reserva;
+
+          //  cmd.CommandText = "UPDATE tbl_reservas SET " +
+               //// "res_devolucao=" + r.r_devolucao + "" +
+               // "res_odometro_fim=" + r.r_odometro_final + "" +
+               //  "res_hora_dev_reserva=" + r.r_hora_dev_reserva+ "" +
+               //  "res_data_atualizacao=" + DateTime.Now + "" +
+               // "res_desc_historico=" + r.r_ocorrencias + "" +
+               // "res_usuario_atualizacao=" + Globais.useracesso + "" +
+               // "WHERE res_placa = '" + r.r_placa + "' AND res_codigo_reserva = " + r.r_codigo_reserva;
+
+                da = new SqlDataAdapter(cmd.CommandText, vcon);
+                cmd.ExecuteNonQuery();
+                vcon.Close();
+                MessageBox.Show("CHECKOUT efetuado com sucesso!");
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw ex;
+            //}
+
+        }
         public void CheckReservasDates()
         {
             F_Reserva wreserva = new F_Reserva();

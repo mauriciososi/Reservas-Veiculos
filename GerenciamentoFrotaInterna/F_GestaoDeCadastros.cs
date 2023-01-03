@@ -1,4 +1,9 @@
-﻿using System;
+﻿//-----------------------------------------------------------------------------------
+// Autor: Mauricio Silva
+// Sistema de reserva de veículos frota interna YKK
+// 22/12/2022
+//-----------------------------------------------------------------------------------
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,7 +26,8 @@ namespace GerenciamentoFrotaInterna
         {
             dgv_usuarios.DataSource = Banco.ObterUsuarioIdNome();
             dgv_usuarios.Columns[0].Width= 80;
-            dgv_usuarios.Columns[1].Width = 120;
+            dgv_usuarios.Columns[1].Width = 90;
+            dgv_usuarios.Columns[2].Width = 150;
         }
 
         private void dgv_usuarios_SelectionChanged(object sender, EventArgs e)
@@ -34,9 +40,10 @@ namespace GerenciamentoFrotaInterna
             if (contlinhas > 0)
             {
                 DataTable dt = new DataTable();
-                string vid = dgv.SelectedRows[0].Cells[0].Value.ToString();
+                //string vid = dgv.SelectedRows[0].Cells[0].Value.ToString(); 
+                int wMatricula = Int32.Parse(dgv.SelectedRows[0].Cells[0].Value.ToString());
                 //irá carregar cada linha selecionad
-                dt=Banco.ObterDadosUsuario(vid); //retorna dados do usuário que possui o ID especifico do parametro para "dt"
+                dt =Banco.ObterDadosUsuarioByMatricula(wMatricula); //retorna dados do usuário que possui o ID especifico do parametro para "dt"
                 //Field<Int64>("usr_id_usuario").ToString();
                 txb_id.Text = dt.Rows[0].Field<Int32>("usr_id_usuario").ToString();
                 cb_empresa.Text = dt.Rows[0].Field<Int32>("usr_cod_empresa").ToString();
